@@ -1,4 +1,12 @@
-.asdf {
+.cats {
   font-size: x-large;
-  background-color: red;
+  background-color: grey;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  align-items: center;
+  margin-top: 46px;
+  max-width: 400px;
+}
+
+.cats--image {
+ 
 }
