@@ -1,13 +1,11 @@
+import { CatListItem } from '../cat-list-item/cat-list-item';
 import cats from './data.json';
 
 export const CatList = () => {
   return (
     <div>
       {cats.cats.map((cat) => (
-        <>
-          <div>{cat.name}</div>
-          <img src={cat.image} alt={'CAT'} />
-        </>
+        <CatListItem name={cat.name} />
       ))}
     </div>
   );
