@@ -1,7 +1,7 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { CatList } from '../cat-list/cat';
 
 export function App() {
-  return <div>Hello World</div>;
+  return <CatList />;
 }
 
 export default App;
