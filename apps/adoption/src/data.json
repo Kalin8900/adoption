@@ -1,0 +1,108 @@
+{
+  "cats": [
+    {
+      "name": "Fluffy",
+      "breed": "Persian",
+      "age": 2,
+      "gender": "Female",
+      "color": "White",
+      "description": "Fluffy is a playful and affectionate Persian cat. She loves to cuddle and is great with kids and other pets. She has been spayed and is up to date on all of her vaccinations.",
+      "image": "https://loremflickr.com/320/240/cat?random=1",
+      "adoption_fee": 50
+    },
+    {
+      "name": "Simba",
+      "breed": "Siamese",
+      "age": 3,
+      "gender": "Male",
+      "color": "Seal Point",
+      "description": "Simba is a handsome and friendly Siamese cat. He loves to play and is very curious about his surroundings. He has been neutered and is up to date on all of his vaccinations.",
+      "image": "https://loremflickr.com/320/240/cat?random=2",
+      "adoption_fee": 75
+    },
+    {
+      "name": "Luna",
+      "breed": "Domestic Shorthair",
+      "age": 1,
+      "gender": "Female",
+      "color": "Tuxedo",
+      "description": "Luna is a sweet and energetic Domestic Shorthair cat. She loves to explore and play with toys. She has been spayed and is up to date on all of her vaccinations.",
+      "image": "https://loremflickr.com/320/240/cat?random=3",
+      "adoption_fee": 25
+    },
+    {
+      "name": "Oreo",
+      "breed": "Maine Coon",
+      "age": 4,
+      "gender": "Male",
+      "color": "Black and White",
+      "description": "Oreo is a gentle and laid-back Maine Coon cat. He loves to be petted and is great with children. He has been neutered and is up to date on all of his vaccinations.",
+      "image": "https://loremflickr.com/320/240/cat?random=4",
+      "adoption_fee": 100
+    },
+    {
+      "name": "Smokey",
+      "breed": "Scottish Fold",
+      "age": 2,
+      "gender": "Male",
+      "color": "Grey",
+      "description": "Smokey is a curious and playful Scottish Fold cat. He loves to climb and explore new places. He has been neutered and is up to date on all of his vaccinations.",
+      "image": "https://loremflickr.com/320/240/cat?random=5",
+      "adoption_fee": 50
+    },
+    {
+      "name": "Mittens",
+      "breed": "Ragdoll",
+      "age": 3,
+      "gender": "Female",
+      "color": "Cream",
+      "description": "Mittens is a calm and affectionate Ragdoll cat. She loves to snuggle and is great with other cats. She has been spayed and is up to date on all of her vaccinations.",
+      "image": "https://loremflickr.com/320/240/cat?random=6",
+      "adoption_fee": 75
+    },
+    {
+          "name": "Whiskers",
+          "breed": "British Shorthair",
+          "age": 1,
+          "gender": "Male",
+          "color": "Grey",
+          "description": "Whiskers is a friendly and affectionate British Shorthair cat. He loves to play with toys and enjoys being petted. He has been neutered and is up to date on all of his vaccinations.",
+          "image": "https://loremflickr.com/320/240/cat?random=7",
+          "adoption_fee": 50
+        },
+        {
+          "name": "Milo",
+          "breed": "Sphynx",
+          "age": 2,
+          "gender": "Male",
+          "color": "White",
+          "description": "Milo is a playful and curious Sphynx cat. He loves to explore and is very social. He has been neutered and is up to date on all of his vaccinations.",
+          "image": "https://loremflickr.com/320/240/cat?random=8",
+          "adoption_fee": 75
+        },
+        {
+          "name": "Cleo",
+          "breed": "Egyptian Mau",
+          "age": 3,
+          "gender": "Female",
+          "color": "Spotted",
+          "description": "Cleo is a graceful and intelligent Egyptian Mau cat. She loves to play and is great with kids. She has been spayed and is up to date on all of her vaccinations.",
+          "image": "https://loremflickr.com/320/240/cat?random=9",
+          "adoption_fee": 100
+        },
+        {
+          "name": "Boots",
+          "breed": "American Shorthair",
+          "age": 4,
+          "gender": "Male",
+          "color": "Black",
+          "description": "Boots is a gentle and loving American Shorthair cat. He loves to be petted and is very loyal. He has been neutered and is up to date on all of his vaccinations.",
+          "image": "https://loremflickr.com/320/240/cat?random=10",
+          "adoption_fee": 25
+        }
+  
+      ]
+    
+
+}
+

@@ -7,7 +7,6 @@ interface CatListItemProps {
   breed: string;
   color: string;
   gender: string;
-  size: string;
   image: string;
   description: string;
   adoption_fee: number;
@@ -16,8 +15,13 @@ interface CatListItemProps {
 export const CatListItem: FC<CatListItemProps> = (props) => {
   return (
     <div className={styles.cats}>
-      {props.name} <br />Age: {props.age} <br />Description:  {props.description}
-      <img src={props.image} alt="głaskać kotki wciągać kreski"/>
+      <img src={props.image} className={styles.catsImage} alt="głaskać kotki wciągać kreski"/>
+      <div className={styles.catsName}>
+      {props.name}
+      </div>
+      <div className={styles.catsInfo}>
+      Age: {props.age} <br />Description:  {props.description}
+      </div>
     </div>
   );
 };
