@@ -1,6 +1,16 @@
 
 * {margin: 0;}
 
+.badge {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background-color: white;
+  padding: 5px 7px;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
 .cats {
   font-size: x-large;
   font-family: 'Poppins', sans-serif;  
@@ -8,7 +18,7 @@
   display:inline-flex;
   margin-left: 50px;
   margin-top: 20px;
-  background-color: #31c48e3d;
+  background-color: #31c48e86;
   border-radius: 30px;
 }
 .catsName {
@@ -42,9 +52,6 @@
   margin-bottom: 10px;
   margin-top: 10px;
   border-color: black;
-  outline: solid 3px #398378;
 }
 
-body {
-  background-color: #39833950;
-}
+
