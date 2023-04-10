@@ -2,6 +2,7 @@ import { FC } from 'react';
 import styles from './cat-list-item.module.css';
 
 interface CatListItemProps {
+  id: number;
   name: string;
   age: number;
   breed: string;
@@ -10,11 +11,21 @@ interface CatListItemProps {
   image: string;
   description: string;
   adoption_fee: number;
+  available: boolean;
 }
 
 export const CatListItem: FC<CatListItemProps> = (props) => {
-  return (
+    
+    let badgeText: string
+      if (props.available) {
+        badgeText = ""
+      } else {
+        badgeText = "Reserved";
+      }
+    
+    return (
     <div className={styles.cats}>
+      {!props.available && <div className="badge">{badgeText}</div>}
       <img src={props.image} className={styles.catsImage} alt="głaskać kotki wciągać kreski"/>
       <div className={styles.catsName}>
       {props.name}
