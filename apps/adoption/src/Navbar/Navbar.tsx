@@ -1,16 +1,17 @@
-import { FC } from 'react';
-import styles from '../cat-list-item/cat-list-item.module.css';
+import { NavbarItem } from '../Navbar/Navbar-item';
+import navbarItems from '../data.json';
 
+export const Navbar = () => {
+  return (
+    <div>
+      {navbarItems.navbarItems.map((item) => (
+        <NavbarItem
+          image={item.image}
+          infoPhone={item.infoPhone}
+          infoEmail={item.infoEmail}
 
-interface NavbarProps {
-    image: string;
-}
-
-export const Navbar: FC<NavbarProps> = (props) => {
-    return (
-        <nav className={styles.navbar}>
-            <img src={props.image} className={styles.navLogo} alt="logo"/>
-        </nav>
-    )
-}
-
+          />
+      ))}
+    </div>
+  );
+};

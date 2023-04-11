@@ -22,7 +22,7 @@
       "description": "Simba is a handsome and friendly Siamese cat. He loves to play and is very curious about his surroundings. He has been neutered and is up to date on all of his vaccinations.",
       "image": "https://loremflickr.com/320/240/cat?random=2",
       "adoption_fee": 75,
-      "available": true
+      "available": false
     },
     {
       "id": 3,
@@ -106,7 +106,7 @@
           "description": "Cleo is a graceful and intelligent Egyptian Mau cat. She loves to play and is great with kids. She has been spayed and is up to date on all of her vaccinations.",
           "image": "https://loremflickr.com/320/240/cat?random=9",
           "adoption_fee": 100,
-          "available": false
+          "available": true
         },
         {
           "id": 10,
@@ -121,7 +121,15 @@
           "available": false
         }
   
-      ]
+      ],
+  "navbarItems": [
+    {
+      "image": "../src/catdoption-low-resolution-color-logo.png",
+      "infoPhone": "153 543 764",
+      "infoEmail": "catdoption@cat.pl"
+
+    }
+  ]
     
 
 }
