@@ -55,9 +55,44 @@
   color: #31C48D;
   font-family: 'Proza Libre', sans-serif;
   font-weight: 600;
-  margin-left: -300px;
+  margin-left: -200px;
 }
 
+.form {
+  flex-direction: column;
+  display:flex;
+}
+
+.Username {
+  max-width: 100px;
+  max-height: 12px;
+  margin-left: 1700px;
+  margin-top: -80px;
+}
+.Password {
+  max-width: 100px;
+  max-height: 12px;
+  margin-left: 1700px;
+  margin-top: 3px;
+}
+
+.signIn {
+  color: #31C48D;
+  font-family: 'Proza Libre', sans-serif;
+  font-size: medium;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+
+.signUp {
+  color: #31C48D;
+  font-family: 'Proza Libre', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  margin-left: 922px;
+  margin-top: 55px;
+}
 
 .navLogo {
   scale: 0.3;
@@ -66,7 +101,7 @@
 
 .catsImage {
   max-width: 300px;
-  border-radius: 30px;
+  border-radius: 20px;
   margin-bottom: 10px;
   margin-top: 10px;
   position: static;
