@@ -5,7 +5,8 @@ export const CatList = () => {
   return (
     <div>
       {cats.cats.map((cat) => (
-        <CatListItem 
+        <CatListItem
+          id={cat.id}
           name={cat.name}
           age={cat.age}
           breed={cat.breed}
@@ -13,7 +14,8 @@ export const CatList = () => {
           gender={cat.gender}
           image={cat.image}
           description={cat.description}
-          adoption_fee={cat.adoption_fee}        
+          adoption_fee={cat.adoption_fee}
+          available={cat.available}        
           />
       ))}
     </div>

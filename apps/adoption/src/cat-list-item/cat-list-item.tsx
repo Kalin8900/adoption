@@ -16,22 +16,17 @@ interface CatListItemProps {
 
 export const CatListItem: FC<CatListItemProps> = (props) => {
     
-    let badgeText: string
-      if (props.available) {
-        badgeText = ""
-      } else {
-        badgeText = "Reserved";
-      }
+    const badgeText = "Reserved";
     
     return (
     <div className={styles.cats}>
-      {!props.available && <div className="badge">{badgeText}</div>}
+      {!props.available && <div className={styles.badge}>{badgeText}</div>}
       <img src={props.image} className={styles.catsImage} alt="głaskać kotki wciągać kreski"/>
-      <div className={styles.catsName}>
-      {props.name}
-      </div>
+      <div className={styles.catsName}>{props.name}</div>
       <div className={styles.catsInfo}>
-      Age: {props.age} <br />Description:  {props.description}
+      Age: {props.age} <br />
+      Breed: {props.breed} <br />
+      Gender: {props.gender}
       </div>
     </div>
   );
