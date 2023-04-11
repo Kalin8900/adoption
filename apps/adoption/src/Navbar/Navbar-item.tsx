@@ -6,17 +6,36 @@ interface NavbarProps {
     image: string;
     infoPhone: string;
     infoEmail: string;
-
+    Username: string;
+    Password: string;
+    signUp: string;
+    signIn: string;
 
 }
 
 export const NavbarItem: FC<NavbarProps> = (props) => {
     return (
-        <nav className={styles.navbar}>
+        <div>
+            <nav className={styles.navbar}>
             <img src={props.image} className={styles.navLogo} alt="logo"/>
-            <div className={styles.phone}>Phone: {props.infoPhone}</div>
-            <div className={styles.email}>Email: {props.infoEmail}</div>
-        </nav>
+            <div className={styles.phone}>Phone: <br />{props.infoPhone}</div>
+            <div className={styles.email}>Email: <br />{props.infoEmail}</div>
+            <div className={styles.signUp}>Don't have account? <br />{props.signUp} Now!</div>
+            <div className={styles.signIn}>{props.signIn}</div>
+            </nav>
+            <form className={styles.form}>
+                <input 
+                className={styles.Username}
+                placeholder="Username"
+                />
+                <input 
+                className={styles.Password}
+                placeholder="Password"
+                />
+            </form>
+       </div>
     )
 }
+
+
 

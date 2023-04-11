@@ -9,6 +9,10 @@ export const Navbar = () => {
           image={item.image}
           infoPhone={item.infoPhone}
           infoEmail={item.infoEmail}
+          Username={item.Username}
+          Password={item.Password}
+          signUp={item.signUp}
+          signIn={item.signIn}
 
           />
       ))}

@@ -126,8 +126,11 @@
     {
       "image": "../src/catdoption-low-resolution-color-logo.png",
       "infoPhone": "153 543 764",
-      "infoEmail": "catdoption@cat.pl"
-
+      "infoEmail": "catdoption@cat.pl",
+      "Username": "",
+      "Password": "",
+      "signUp": "Sign Up",
+      "signIn": "Sign In"
     }
   ]
     
