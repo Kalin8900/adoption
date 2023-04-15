@@ -18,7 +18,9 @@ export const NavbarItem: FC<NavbarProps> = (props) => {
         <div>
             <nav className={styles.navbar}>
             <img src={props.image} className={styles.navLogo} alt="logo"/>
+            <div className={styles.phoneIcon} />
             <div className={styles.phone}>Phone: <br />{props.infoPhone}</div>
+            <div className={styles.emailIcon} />
             <div className={styles.email}>Email: <br />{props.infoEmail}</div>
             <form className={styles.form}>
                 <input 
