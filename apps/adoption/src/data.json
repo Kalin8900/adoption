@@ -119,7 +119,253 @@
           "image": "https://loremflickr.com/320/240/cat?random=10",
           "adoption_fee": 25,
           "available": false
-        }
+        },
+          {
+            "id": 11,
+            "name": "Felix",
+            "breed": "British Shorthair",
+            "age": 2,
+            "gender": "Male",
+            "color": "Gray",
+            "description": "Felix is a handsome British Shorthair cat with a calm and friendly personality. He loves to nap in sunny spots and cuddle with his humans.",
+            "image": "https://loremflickr.com/320/240/cat?random=11",
+            "adoption_fee": 120,
+            "available": true
+          },
+          {
+            "id": 12,
+            "name": "Ginger",
+            "breed": "Tabby",
+            "age": 4,
+            "gender": "Female",
+            "color": "Orange",
+            "description": "Ginger is a sweet and affectionate tabby cat. She loves to play with toys and cuddle with her humans.",
+            "image": "https://loremflickr.com/320/240/cat?random=12",
+            "adoption_fee": 90,
+            "available": true
+          },
+          {
+            "id": 13,
+            "name": "Max",
+            "breed": "Maine Coon",
+            "age": 1,
+            "gender": "Male",
+            "color": "Black",
+            "description": "Max is a playful and curious Maine Coon cat. He loves to explore and play with toys.",
+            "image": "https://loremflickr.com/320/240/cat?random=13",
+            "adoption_fee": 150,
+            "available": false
+          },
+          {
+            "id": 14,
+            "name": "Bella",
+            "breed": "Persian",
+            "age": 3,
+            "gender": "Female",
+            "color": "White",
+            "description": "Bella is a beautiful Persian cat with a sweet and gentle personality. She loves to be petted and groomed.",
+            "image": "https://loremflickr.com/320/240/cat?random=14",
+            "adoption_fee": 200,
+            "available": true
+          },
+          {
+            "id": 15,
+            "name": "Toby",
+            "breed": "Siamese",
+            "age": 2,
+            "gender": "Male",
+            "color": "Seal Point",
+            "description": "Toby is a curious and energetic Siamese cat. He loves to play with toys and explore his surroundings.",
+            "image": "https://loremflickr.com/320/240/cat?random=15",
+            "adoption_fee": 130,
+            "available": false
+          },
+          {
+            "id": 16,
+            "name": "Loki",
+            "breed": "Sphynx",
+            "age": 2,
+            "gender": "Male",
+            "color": "Gray",
+            "description": "Loki is a playful and affectionate Sphynx cat. He loves to snuggle with his humans and play with toys.",
+            "image": "https://loremflickr.com/320/240/cat?random=16",
+            "adoption_fee": 180,
+            "available": true
+          },
+          {
+            "id": 17,
+            "name": "Chloe",
+            "breed": "Ragdoll",
+            "age": 5,
+            "gender": "Female",
+            "color": "Cream",
+            "description": "Chloe is a gentle and loving Ragdoll cat. She enjoys being petted and cuddling with her humans.",
+            "image": "https://loremflickr.com/320/240/cat?random=17",
+            "adoption_fee": 220,
+            "available": false
+          },
+          
+            {
+              "id": 18,
+              "name": "Shadow",
+              "breed": "Bombay",
+              "age": 3,
+              "gender": "Male",
+              "color": "Black",
+              "description": "Shadow is a sleek and sophisticated Bombay cat with a playful and friendly personality. He loves to play with toys and snuggle with his humans.",
+              "image": "https://loremflickr.com/320/240/cat?random=18",
+              "adoption_fee": 150,
+              "available": true
+            },
+          
+          
+            {
+              "id": 19,
+              "name": "Milo",
+              "breed": "Russian Blue",
+              "age": 1,
+              "gender": "Male",
+              "color": "Blue",
+              "description": "Milo is a handsome Russian Blue cat with a playful and curious personality. He loves to chase toys and explore his surroundings.",
+              "image": "https://loremflickr.com/320/240/cat?random=19",
+              "adoption_fee": 110,
+              "available": false
+            },
+            {
+              "id": 20,
+              "name": "Mittens",
+              "breed": "Calico",
+              "age": 2,
+              "gender": "Female",
+              "color": "White/Black/Orange",
+              "description": "Mittens is a friendly and affectionate Calico cat. She loves to cuddle with her humans and play with toys.",
+              "image": "https://loremflickr.com/320/240/cat?random=20",
+              "adoption_fee": 100,
+              "available": true
+            },
+            {
+              "id": 21,
+              "name": "Buddy",
+              "breed": "Siamese",
+              "age": 2,
+              "gender": "Male",
+              "color": "Seal Point",
+              "description": "Buddy is a friendly and affectionate Siamese cat with a beautiful coat and piercing blue eyes. He loves to play with toys and snuggle with his humans.",
+              "image": "https://loremflickr.com/320/240/cat?random=21",
+              "adoption_fee": 130,
+              "available": true
+            },
+            {
+              "id": 22,
+              "name": "Cinnamon",
+              "breed": "Tabby",
+              "age": 1,
+              "gender": "Female",
+              "color": "Orange/White",
+              "description": "Cinnamon is a sweet and playful Tabby cat with a beautiful coat and a curious personality. She loves to explore her surroundings and play with toys.",
+              "image": "https://loremflickr.com/320/240/cat?random=22",
+              "adoption_fee": 90,
+              "available": true
+            },
+            {
+              "id": 23,
+              "name": "Whiskers",
+              "breed": "Persian",
+              "age": 4,
+              "gender": "Male",
+              "color": "White",
+              "description": "Whiskers is a handsome Persian cat with a gentle and affectionate personality. He loves to be petted and groomed, and enjoys lounging in sunny spots.",
+              "image": "https://loremflickr.com/320/240/cat?random=23",
+              "adoption_fee": 180,
+              "available": true
+            },
+            {
+              "id": 24,
+              "name": "Oliver",
+              "breed": "American Shorthair",
+              "age": 3,
+              "gender": "Male",
+              "color": "Gray/White",
+              "description": "Oliver is a playful and friendly American Shorthair cat with a beautiful coat and expressive green eyes. He loves to play with toys and explore his surroundings.",
+              "image": "https://loremflickr.com/320/240/cat?random=24",
+              "adoption_fee": 120,
+              "available": true
+            },
+            {
+              "id": 25,
+              "name": "Lucy",
+              "breed": "Maine Coon",
+              "age": 1,
+              "gender": "Female",
+              "color": "Black/White",
+              "description": "Lucy is a beautiful Maine Coon cat with a friendly and outgoing personality. She loves to play with toys and cuddle with her humans.",
+              "image": "https://loremflickr.com/320/240/cat?random=25",
+              "adoption_fee": 150,
+              "available": true
+            },
+            {
+              "id": 26,
+              "name": "Sunny",
+              "breed": "Sphynx",
+              "age": 2,
+              "gender": "Female",
+              "color": "Pink",
+              "description": "Sunny is a unique and beautiful Sphynx cat with a playful and affectionate personality. She loves to cuddle with her humans and play with toys.",
+              "image": "https://loremflickr.com/320/240/cat?random=26",
+              "adoption_fee": 200,
+              "available": true
+            },
+            {
+              "id": 27,
+              "name": "Finn",
+              "breed": "Bengal",
+              "age": 2,
+              "gender": "Male",
+              "color": "Brown",
+              "description": "Finn is a handsome and intelligent Bengal cat with a curious and active personality. He loves to play with toys and explore his surroundings.",
+              "image": "https://loremflickr.com/320/240/cat?random=27",
+              "adoption_fee": 180,
+              "available": true
+            },
+            {
+              "id": 28,
+              "name": "Milo",
+              "breed": "Ragdoll",
+              "age": 2,
+              "gender": "Male",
+              "color": "Blue Point",
+              "description": "Milo is a sweet and affectionate Ragdoll cat with a gentle and laid-back personality. He loves to be petted and cuddled, and enjoys lounging in sunny spots.",
+              "image": "https://loremflickr.com/320/240/cat?random=28",
+              "adoption_fee": 170,
+              "available": true
+            },
+            {
+              "id": 29,
+              "name": "Loki",
+              "breed": "Russian Blue",
+              "age": 3,
+              "gender": "Male",
+              "color": "Gray",
+              "description": "Loki is a handsome and playful Russian Blue cat with a curious and energetic personality. He loves to play with toys and explore his surroundings.",
+              "image": "https://loremflickr.com/320/240/cat?random=29",
+              "adoption_fee": 140,
+              "available": true
+            },
+            {
+              "id": 30,
+              "name": "Mittens",
+              "breed": "Calico",
+              "age": 2,
+              "gender": "Female",
+              "color": "Orange/White/Black",
+              "description": "Mittens is a beautiful and friendly Calico cat with a playful and outgoing personality. She loves to play with toys and cuddle with her humans.",
+              "image": "https://loremflickr.com/320/240/cat?random=30",
+              "adoption_fee": 100,
+              "available": true
+            }
+          
+         
+        
   
       ],
   "navbarItems": [
