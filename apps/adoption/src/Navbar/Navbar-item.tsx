@@ -22,7 +22,7 @@ export const NavbarItem: FC<NavbarProps> = (props) => {
             <div className={styles.email}>Email: <br />{props.infoEmail}</div>
             <div className={styles.signUp}>Don't have account? <br />{props.signUp} Now!</div>
             <div className={styles.signIn}>{props.signIn}</div>
-            </nav>
+            
             <form className={styles.form}>
                 <input 
                 className={styles.Username}
@@ -33,6 +33,7 @@ export const NavbarItem: FC<NavbarProps> = (props) => {
                 placeholder="Password"
                 />
             </form>
+            </nav>
        </div>
     )
 }
