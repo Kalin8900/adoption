@@ -1,18 +1,16 @@
-import { CatList } from '../cat-list/cat-list';
-import { CatListItem } from '../cat-list-item/cat-list-item';
-import { Navbar } from '../Navbar/Navbar';
-import { NavbarItem } from "../Navbar/Navbar-item";
-
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { CatListPage } from '../pages/cat-list.page';
+import { HomePage } from '../pages/home.page';
 
 export function App() {
   return (
-    <>
-      <Navbar />
-      <br />
-      <CatList />;
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/cats" Component={CatListPage} />
+        <Route path="/" Component={HomePage} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

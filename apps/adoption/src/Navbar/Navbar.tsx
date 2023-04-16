@@ -1,21 +1,48 @@
-import { NavbarItem } from '../Navbar/Navbar-item';
-import navbarItems from '../data.json';
+import { Link } from 'react-router-dom';
+import Image from '../assets/catdoption-low-resolution-color-logo.png';
+import styles from '../cat-list-item/cat-list-item.module.css';
+import { Route } from '../routes';
+import { useGetIsCurrentPath } from './useIsCurrentPath';
 
 export const Navbar = () => {
+  const isCurrentPath = useGetIsCurrentPath();
+
   return (
     <div>
-      {navbarItems.navbarItems.map((item) => (
-        <NavbarItem
-          image={item.image}
-          infoPhone={item.infoPhone}
-          infoEmail={item.infoEmail}
-          Username={item.Username}
-          Password={item.Password}
-          signUp={item.signUp}
-          signIn={item.signIn}
-
-          />
-      ))}
+      <nav className={styles.navbar}>
+        <img src={Image} className={styles.navLogo} alt="logo" />
+        <div className={styles.phoneIcon} />
+        <div className={styles.phone}>123 456 789</div>
+        <div className={styles.emailIcon} />
+        <div className={styles.email}>email@emial.com</div>
+        <ul className={styles.menu}>
+          <li className={styles.menuLink}>
+            <Link
+              className={isCurrentPath(Route.Home) ? styles.active : ''}
+              to={Route.Home}
+            >
+              Home
+            </Link>
+          </li>
+          <li className={styles.menuLink}>
+            <Link
+              className={isCurrentPath(Route.Cats) ? styles.active : ''}
+              to={Route.Cats}
+            >
+              Cats
+            </Link>
+          </li>
+        </ul>
+        <form className={styles.form}>
+          <input className={styles.Username} placeholder="Username" />
+          <input className={styles.Password} placeholder="Password" />
+          <div className={styles.signUp}>
+            Don't have account? <br />
+            Sign Up Now!
+          </div>
+          <div className={styles.signIn}>Sign in</div>
+        </form>
+      </nav>
     </div>
   );
 };
