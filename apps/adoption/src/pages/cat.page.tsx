@@ -1,3 +1,25 @@
+import { Navbar } from '../navbar/Navbar';
+import { Cat } from '../cat/cat';
+
+export const CatPage = () => {
+  return (
+    <>
+      <Navbar />
+      <br />
+      <Cat />
+    </>
+  );
+};
+
+
+
+
+
+
+
+
+
+
 // 1. Napisz Podstawowego Page'a dla kota (Pusty z tytułem)
 // 2. Link z Cat List Item => CatPage
 // 3. Route w App => CatPage (wykorzystaj parameter /cat/:id) + w routes.ts
