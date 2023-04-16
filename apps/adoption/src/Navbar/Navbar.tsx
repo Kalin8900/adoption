@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import Image from '../assets/catdoption-low-resolution-color-logo.png';
-import styles from '../cat-list-item/cat-list-item.module.css';
+import styles from '../navbar/navbar.module.css';
 import { Route } from '../routes';
-import { useGetIsCurrentPath } from './useIsCurrentPath';
+import { useGetIsCurrentPath } from '../navbar/useIsCurrentPath';
 
 export const Navbar = () => {
   const isCurrentPath = useGetIsCurrentPath();
@@ -14,7 +14,7 @@ export const Navbar = () => {
         <div className={styles.phoneIcon} />
         <div className={styles.phone}>123 456 789</div>
         <div className={styles.emailIcon} />
-        <div className={styles.email}>email@emial.com</div>
+        <div className={styles.email}>catdoption@cat.com</div>
         <ul className={styles.menu}>
           <li className={styles.menuLink}>
             <Link
