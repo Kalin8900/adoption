@@ -70,7 +70,7 @@ body {
   color: #BC986A;
   font-family: 'Proza Libre', sans-serif;
   font-weight: 600;
-  margin-left: 700px;
+  margin-left: 620px;
   position: fixed;
 }
 
@@ -92,7 +92,7 @@ body {
  width: 22px;
  border-radius: 2px;
  color: #BC986A;
- margin-left: 665px;
+ margin-left: 585px;
  margin-top: 0px;
 }
 
@@ -172,7 +172,30 @@ body {
   left: 2px
  } 
 
+.menu {
+  position: absolute;
+  color: #BC986A;
+  list-style-type: none;
+  font-family: 'Proza Libre', sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  margin-left: 50%;
+}
 
+.menuHome, .menuInfo, .menuAllCats, .menuEducation {
+  display: inline-block;
+  /* border: 1px red solid; */
+  /* margin-left: 40px; */
+  padding: 5px;
+  margin-left: 40px;
+  border:transparent 2px solid;
+}
+
+.menuHome:hover, .menuInfo:hover, .menuAllCats:hover, .menuEducation:hover {
+  border:2px solid  #daad86;
+  border-radius: 10px;
+
+}
 
 .form {
   flex-direction: column;
