@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Image from '../assets/catdoption-low-resolution-color-logo.png';
 import styles from '../navbar/navbar.module.css';
 import { Route } from '../routes';
-import { useGetIsCurrentPath } from '../navbar/useIsCurrentPath';
+import { useGetIsCurrentPath } from '../api/useIsCurrentPath';
 
 export const Navbar = () => {
   const isCurrentPath = useGetIsCurrentPath();
