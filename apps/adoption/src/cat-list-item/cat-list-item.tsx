@@ -1,5 +1,7 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './cat-list-item.module.css';
+import { Route } from '../routes';
 
 interface CatListItemProps {
   id: number;
@@ -19,20 +21,24 @@ export const CatListItem: FC<CatListItemProps> = (props) => {
 
   return (
     <div className={styles.containerCats}>
-      <div className={styles.cats}>
-        {!props.available && <div className={styles.badge}>{badgeText}</div>}
-        <img
+      <Link
+          to={Route.Cat}
+        >
+        <div className={styles.cats}>
+          {!props.available && <div className={styles.badge}>{badgeText}</div>}
+          <img
           src={props.image}
           className={styles.catsImage}
           alt="głaskać kotki wciągać kreski"
-        />
-        <div className={styles.catsName}>{props.name}</div>
-        <div className={styles.catsInfo}>
-          Age: {props.age} <br />
-          Breed: {props.breed} <br />
-          Gender: {props.gender}
+          />
+          <div className={styles.catsName}>{props.name}</div>
+          <div className={styles.catsInfo}>
+            Age: {props.age} <br />
+            Breed: {props.breed} <br />
+            Gender: {props.gender}
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };
