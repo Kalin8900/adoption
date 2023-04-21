@@ -16,8 +16,11 @@ interface CatListItemProps {
   available: boolean;
 }
 
+
+
 export const CatListItem: FC<CatListItemProps> = (props) => {
   const badgeText = 'Reserved';
+
 
   return (
     <div className={styles.containerCats}>

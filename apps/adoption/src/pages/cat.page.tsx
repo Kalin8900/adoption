@@ -1,7 +1,12 @@
+import React from "react"
 import { Navbar } from '../navbar/navbar';
 import { Cat } from '../cat/cat';
 
 export const CatPage = () => {
+
+  // const [isCat, setIsCat] = React.useState(null)
+  // const [isLoading, setIsLoading] = React.useState()
+  
   return (
     <>
       <Navbar />
@@ -9,7 +14,7 @@ export const CatPage = () => {
       <Cat />
     </>
   );
-};
+}
 
 
 
