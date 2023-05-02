@@ -1,31 +1,24 @@
 import { useParams } from 'react-router-dom';
 import styles from '../cat/cat.module.css';
-import { getCatById } from "../api/getCatById";
-import React, { useEffect } from "react"
-import { CatListItem } from '../cat-list-item/cat-list-item';
+import React from "react"
+
 
 export const Cat = () => {
-    const {id} = useParams()
-    const [isCat, setIsCat] = React.useState(null)
-    const [isLoading, setIsLoading] = React.useState(true)
+    const params = useParams()
+    const [cat, setCat] = React.useState(null)
+    // const [isLoading, setIsLoading] = React.useState(true)
 
-    const handleCat = () => {
-        setIsCat(CatListItem.id)
-    }
-
-    const handleLoading = () => {
-        setIsLoading(!isLoading)
-    }
+    React.useEffect(() => {
+        fetch(`/cats/${params.id}`)
+            .then(res => res.json())
+            .then(data => setCat(data.cat))
+    }, [params.id])
     
-//     useEffect(() => {
-//     getCatById(CatListItem.id)
-//   },[isCat])
 
 return (
-    <>
-        {isLoading ? <div>Cat is Loading</div> : ({handleLoading} && {handleCat})}
-        {isCat !== null ? <div className={styles.CatDetail}>CAT {id}</div> : <div>Error 404</div>}
-    </>
+    <div className={styles.CatDetail}>
+        <h1>CAT</h1>
+    </div>
 )
 }
 
