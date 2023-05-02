@@ -1,3 +1,4 @@
+import React from 'react';
 import { CatListItem } from '../cat-list-item/cat-list-item';
 import cats from '../api/data.json';
 
@@ -6,7 +7,6 @@ import cats from '../api/data.json';
 // obsłuz ładowanie i wszystko inne jak w Cat Page
 
 export const CatList = () => {
-
   return (
     <div>
       {cats.cats.map((cat) => (

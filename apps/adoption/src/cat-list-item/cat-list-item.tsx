@@ -1,7 +1,7 @@
+import React from 'react';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './cat-list-item.module.css';
-import { Route } from '../routes';
 
 interface CatListItemProps {
   id: number;
@@ -17,16 +17,19 @@ interface CatListItemProps {
 }
 
 
-
 export const CatListItem: FC<CatListItemProps> = (props) => {
   const badgeText = 'Reserved';
 
+  const [cats, setCats] = React.useState([])
+  React.useEffect(() => {
+    fetch('/api/data.json')
+        .then(res => res.json())
+        .then(data => setCats(data.cats))
+}, [])
 
-  return (
-    <div className={styles.containerCats}>
-      <Link
-          to={Route.Cat}
-        >
+  const catElements = cats.map(cat => (
+    <div key={props.id} className={styles.containerCats}>
+        <Link to={`/cats/${props.id}`}>
         <div className={styles.cats}>
           {!props.available && <div className={styles.badge}>{badgeText}</div>}
           <img
@@ -43,5 +46,10 @@ export const CatListItem: FC<CatListItemProps> = (props) => {
         </div>
       </Link>
     </div>
-  );
+  ))
+
+  return (
+    <div>{catElements}</div>
+  )
+
 };
