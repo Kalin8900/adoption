@@ -8,8 +8,8 @@ export function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/cats" element={<CatListPage />} />
-        <Route path="/cats/:id" element={<CatPage />} />
+        <Route path="cats" element={<CatListPage />} />
+        <Route path="cats/:id" element={<CatPage />} />
       </Routes>
     </BrowserRouter>
   );

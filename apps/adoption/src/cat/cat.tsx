@@ -1,25 +1,21 @@
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import styles from '../cat/cat.module.css';
 import React from "react"
 
 
 export const Cat = () => {
-    const params = useParams()
-    const [cat, setCat] = React.useState(null)
-    // const [isLoading, setIsLoading] = React.useState(true)
 
-    React.useEffect(() => {
-        fetch(`/cats/${params.id}`)
-            .then(res => res.json())
-            .then(data => setCat(data.cat))
-    }, [params.id])
+    const params = useParams()
+    const location = useLocation()
+    
+    const [cat, setCat] = React.useState(null)
     
 
-return (
-    <div className={styles.CatDetail}>
-        <h1>CAT</h1>
-    </div>
-)
+    return (
+        <div className={styles.CatDetail}>
+            <h1>CAT</h1>
+        </div>
+    )
 }
 
 
