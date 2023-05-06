@@ -20,16 +20,14 @@ interface CatListItemProps {
 export const CatListItem: FC<CatListItemProps> = (props) => {
   const badgeText = 'Reserved';
 
-  const [cats, setCats] = React.useState([])
-  React.useEffect(() => {
-    fetch('/api/data.json')
-        .then(res => res.json())
-        .then(data => setCats(data.cats))
-}, [])
+  const [loading, setLoading] = React.useState(false)
 
-  const catElements = cats.map(cat => (
+
+
+
+  return (
     <div key={props.id} className={styles.containerCats}>
-        <Link to={`/cats/${props.id}`}>
+      <Link to={`/cats/${props.id}`}>
         <div className={styles.cats}>
           {!props.available && <div className={styles.badge}>{badgeText}</div>}
           <img
@@ -46,10 +44,6 @@ export const CatListItem: FC<CatListItemProps> = (props) => {
         </div>
       </Link>
     </div>
-  ))
-
-  return (
-    <div>{catElements}</div>
   )
 
 };
