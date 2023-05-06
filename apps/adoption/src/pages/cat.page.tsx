@@ -9,16 +9,7 @@ export const CatPage = () => {
       <Cat />
     </>
   );
-}
-
-
-
-
-
-
-
-
-
+};
 
 // 1. Napisz Podstawowego Page'a dla kota (Pusty z tytułem)
 // 2. Link z Cat List Item => CatPage
