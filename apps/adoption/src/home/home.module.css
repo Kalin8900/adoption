@@ -1,0 +1,73 @@
+
+.homeMain {
+    padding: 10px;
+    font-family: 'Poppins', sans-serif; 
+    background-color: #daad8679;
+    color: #5f3f16;
+
+}
+
+.homeH1 {
+
+    font-weight: bold;
+    /* color: #5f3f16; */
+    margin-top: 100px;
+    text-align: center;
+    font-size: 50px;
+
+}
+
+.homeH2 {
+    margin-top: 30px;
+    text-align: center;
+    /* color: #5f3f16; */
+}
+
+.homeP {
+    margin-left: 200px;
+    margin-right: 200px;
+
+    text-align: justify;
+    
+}
+
+.homeH3 {
+    margin-top: 50px;
+    margin-left: 200px;
+    margin-right: 200px;
+
+}
+
+.homePupils {
+    margin-top: 50px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.card1 {
+    border: #BC986A solid;
+    border-radius: 20px;
+    padding: 10px;
+    max-width: 300px;
+    margin-left: 300px;
+    margin-top: 20px;
+}
+
+.cardH {
+    margin-top: 50px;
+    margin-left: 90px;
+}
+
+.description {
+    margin-top: 15px;
+    max-width: 300px;
+    text-align: center;
+
+
+}
+
+.image1 {
+    max-width: 300px;
+    margin-bottom: -40px;
+    
+}

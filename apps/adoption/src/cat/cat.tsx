@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Cat as ICat, getCatById } from '../api/getCatById';
 import { CatListItem } from '../cat-list-item/cat-list-item';
 import styles from '../cat/cat.module.css';
+// import { useApi } from '../hooks/useApi';
 
 export const Cat = () => {
   const { id } = useParams();
@@ -10,7 +11,7 @@ export const Cat = () => {
   const [cat, setCat] = useState<ICat | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  //   const [cat, isLoading] = useApi(() => getCatById(Number(id)))
+    // const [cat, isLoading] = useApi(() => getCatById(Number(id)))
 
   useEffect(() => {
     if (id) {
