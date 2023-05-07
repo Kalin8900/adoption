@@ -20,10 +20,6 @@ interface CatListItemProps {
 export const CatListItem: FC<CatListItemProps> = (props) => {
   const badgeText = 'Reserved';
 
-  const [loading, setLoading] = React.useState(false)
-
-
-
 
   return (
     <div key={props.id} className={styles.containerCats}>

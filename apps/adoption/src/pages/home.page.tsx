@@ -1,12 +1,12 @@
 import { Navbar } from '../navbar/navbar';
-import styles from '../cat/cat.module.css';
+import { Home } from '../home/home'
 
 export const HomePage = () => {
   return (
     <>
       <Navbar />
       <br />
-      <h1 className={styles.CatDetail}>Home Page</h1>;
+      <Home />
     </>
   );
 };

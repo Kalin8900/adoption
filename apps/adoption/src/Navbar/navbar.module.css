@@ -155,7 +155,8 @@
   }
   
   .active {
-    color: red !important;
+    color: #5f3f16 !important;
+    text-decoration: underline;
   }
   
   .form {
@@ -188,6 +189,7 @@
     margin-top: 10px;
   }
   .signIn:hover {
+    color: #5f3f16;
     text-decoration: underline;
   
   }
@@ -202,6 +204,7 @@
   }
   
   .signUp:hover {
+    color: #5f3f16;
     text-decoration: underline;
   }
   

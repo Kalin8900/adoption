@@ -1,23 +1,26 @@
-// napisz prosty hook, który będzie przyjmował callback i ustawiał state, oraz status ładowania
-// const { data, isLoading } = useApi(() => getCatById(1)
+// import { useEffect, useState } from "react";
+// import { useParams } from "react-router-dom";
+// import { Cat as ICat } from "../api/getCatById";
 
+// export const useApi = (obj) => {
 
-// import { useEffect } from "react";
-// import axios from "axios";
-// import React from "react";
+//     const { id } = useParams();
+//     const [data, setData] = useState<ICat | null>(null);
+//     const [isLoading, setIsLoading] = useState(true);
 
-// function useApi(url:string) {
-//     const [result, setResult] = React.useState();
-//     const [loading, setLoading] = React.useState(false);
-  
 //     useEffect(() => {
-//       setLoading(true);
-//       axios.get(url).then(r => {
-//         setResult(r.data);
-//         setLoading(false);
-//       });
-//     }, [url]);
-  
-//     return [result, loading];
-//   }
+//         if (arg) {
+//           (async () => {
+//             return new Promise((resolve) => {
+//               setTimeout(() => {
+//                 setData();
+//                 setIsLoading(false);
+//                 resolve(data);
+//               }, 2000);
+//             });
+//           })(); // IIFE
+//         }
+//       }, []);
 
+//     return [data, isLoading]
+// }
