@@ -1,12 +1,14 @@
 import React from "react"
 import styles from "./home.module.css"
 import { HomeCard } from "./home.cards"
+import { getCatById } from "../api/getCatById"
 
 
 
 
 export const Home = () => {
 
+    const cat1 = getCatById(1)
     return (
         <div className={styles.homeMain}>
             <h1 className={styles.homeH1}>Adopt a cat</h1><br />
@@ -23,7 +25,9 @@ export const Home = () => {
             <HomeCard />
             <div>
                 <h2 className={styles.homePupils}>Some of our pupils:</h2>
-                
+                <div className={styles.pupils}>
+                    {cat1}
+                </div>
             </div>
         </div>
     )
