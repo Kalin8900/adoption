@@ -32,6 +32,14 @@ export const Navbar = () => {
               Cats
             </Link>
           </li>
+          <li className={styles.menuLink}>
+            <Link
+              className={isCurrentPath(Route.Info) ? styles.active : ''}
+              to={Route.Info}
+            >
+              Info
+            </Link>
+          </li>
         </ul>
         <form className={styles.form}>
           <input className={styles.Username} placeholder="Username" />
