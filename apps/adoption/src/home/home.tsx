@@ -2,13 +2,18 @@ import React from "react"
 import styles from "./home.module.css"
 import { HomeCard } from "./home.cards"
 import { getCatById } from "../api/getCatById"
-
-
+import { useEffect, useState } from 'react';
+import { PupilsProps } from "./pupils"
 
 
 export const Home = () => {
 
-    const cat1 = getCatById(1)
+    const [pupil, setPupil] = useState<typeof PupilsProps | null>(null);
+    
+    useEffect(() => {
+        setPupil(getCatById(1))
+    }, [])
+
     return (
         <div className={styles.homeMain}>
             <h1 className={styles.homeH1}>Adopt a cat</h1><br />
@@ -26,7 +31,7 @@ export const Home = () => {
             <div>
                 <h2 className={styles.homePupils}>Some of our pupils:</h2>
                 <div className={styles.pupils}>
-                    {cat1}
+                    <PupilsProps {...pupil}/>
                 </div>
             </div>
         </div>
