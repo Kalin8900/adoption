@@ -29,7 +29,7 @@ export const CatListItem: FC<CatListItemProps> = (props) => {
           <img
           src={props.image}
           className={styles.catsImage}
-          alt="głaskać kotki wciągać kreski"
+          alt="kitty"
           />
           <div className={styles.catsName}>{props.name}</div>
           <div className={styles.catsInfo}>

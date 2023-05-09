@@ -1,13 +1,8 @@
-import { Navbar } from '../navbar/navbar';
 import { Cat } from '../cat/cat';
 
 export const CatPage = () => {
   return (
-    <>
-      <Navbar />
-      <br />
       <Cat />
-    </>
   );
 };
 
