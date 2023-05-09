@@ -29,15 +29,15 @@ export const PupilsProps: FC<PupilsListItemProps> = (props) => {
 
     return (
     
-    <div key={props.id} className={styles.containerCats}>
+    <div key={props.id}>
         <Link to={`/cats/${props.id}`}>
-        <div className={styles.cats}>
+        <div className={styles.pupil}>
             <img
             src={props.image}
-            className={styles.catsImage}
-            alt="głaskać kotki wciągać kreski"
+            className={styles.pupilImage}
+            alt="kitty"
             />
-            <div className={styles.catsName}>{props.name}</div>
+            <div className={styles.PupilName}>{props.name}</div>
         </div>
         </Link>
     </div>
