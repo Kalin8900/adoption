@@ -27,6 +27,18 @@
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.664);
 }
 
+.catImageGrey {
+    margin-top: 50px;
+    border-radius: 10px;
+    width: 800px;
+    outline: solid #5f3f16b6;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.664);
+    opacity: 0.3;
+}
+
+
+
+
 .list {
     margin-top: 30px;
     font-weight: 700;
