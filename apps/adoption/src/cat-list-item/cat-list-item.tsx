@@ -23,23 +23,22 @@ export const CatListItem: FC<CatListItemProps> = (props) => {
 
   return (
     <div key={props.id} className={styles.containerCats}>
-        <div className={styles.cats}>
-            <Link to={`${props.id}`}>
-            {!props.available && <div className={styles.badge}>{badgeText}</div>}
-            <img
-            src={props.image}
-            className={styles.catsImage}
-            alt="kitty"
-            />
-            <div className={styles.catsName}>{props.name}</div>
-            <div className={styles.catsInfo}>
-              Age: {props.age} <br />
-              Breed: {props.breed} <br />
-              Gender: {props.gender}
-            </div>
-          </Link>
-        </div>
-
+      <div className={styles.cats}>
+        <Link to={`${props.id}`}>
+          {!props.available && <div className={styles.badge}>{badgeText}</div>}
+          <img
+          src={props.image}
+          className={styles.catsImage}
+          alt="kitty"
+          />
+          <div className={styles.catsName}>{props.name}</div>
+          <div className={styles.catsInfo}>
+            Age: {props.age} <br />
+            Breed: {props.breed} <br />
+            Gender: {props.gender}
+          </div>
+        </Link>
+      </div>
     </div>
   )
 

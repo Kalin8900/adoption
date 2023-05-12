@@ -26,8 +26,11 @@ export const Cat = () => {
     }
   }, [id]);
 
+ const reservedCat = {...cat, available: false}
 
-
+ const handleClick = () => {
+  setCat(reservedCat)
+ }
 
   // conditional rendering
   if (isLoading) {
@@ -43,7 +46,7 @@ export const Cat = () => {
     <>
       <div className={styles.catDetail}>
         <div className={styles.catName}>{cat.name}</div>
-        <img className={styles.catImage} src={cat.image} alt="cat" />
+        <img className={cat.available ? styles.catImage : styles.catImageGrey} src={cat.image} alt="cat" />
         <ul className={styles.list}>
           <li>{`Breed: ${cat.breed}`}</li>
           <li>{`Age: ${cat.age}`}</li>
@@ -52,14 +55,14 @@ export const Cat = () => {
           <li>{`Status: ${cat.available ? "Available" : "Reserved"}`}</li>
         </ul>
         <div className={styles.catDescription}>{cat.description}</div>
-        {cat.available ? (<button className={styles.buttonRsv} onClick={!cat.available}>Reserve</button>) : ""}
+        {cat.available ? (<button className={styles.buttonRsv} onClick={handleClick}>Reserve</button>) : ""}
       </div>
       <div className={styles.arrows}>
         <Link to={`/cats/${cat.id-1}`}>
           <div className={styles.arrowIconLeft} />
         </Link>
         <Link to={`/cats/${cat.id+1}`}>
-          {(cat.id + 1) ? (<div className={styles.arrowIconRight}/>) : ""}
+          <div className={styles.arrowIconRight}/>
         </Link>
       </div>
 
