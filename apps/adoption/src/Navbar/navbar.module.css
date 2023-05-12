@@ -8,7 +8,9 @@
     align-items: center;
     position: fixed;
     z-index: 1;
+    margin: 0;
   } 
+
   .email {
     color: #BC986A;
     font-family: 'Proza Libre', sans-serif;
@@ -25,7 +27,6 @@
    box-sizing: border-box;
    height: 18px;
    border: 2px solid;
-   
   }
   
   .emailIcon {
@@ -137,7 +138,6 @@
   .menuLink:hover {
     border:2px solid  #daad86;
     border-radius: 10px;
-  
   }
   
   a {
@@ -175,7 +175,6 @@
   .Password {
     max-width: 100px;
     max-height: 12px;
-  
   }
   
   .signIn {
@@ -188,10 +187,10 @@
     width: 60px;
     margin-top: 10px;
   }
+
   .signIn:hover {
     color: #5f3f16;
     text-decoration: underline;
-  
   }
   
   .signUp {

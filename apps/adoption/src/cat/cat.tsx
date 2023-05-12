@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Cat as ICat, getCatById } from '../api/getCatById';
 import { CatListItem } from '../cat-list-item/cat-list-item';
 import styles from '../cat/cat.module.css';
@@ -10,8 +10,6 @@ export const Cat = () => {
 
   const [cat, setCat] = useState<ICat | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-
-    // const [cat, isLoading] = useApi(() => getCatById(Number(id)))
 
   useEffect(() => {
     if (id) {
@@ -28,6 +26,9 @@ export const Cat = () => {
     }
   }, [id]);
 
+
+
+
   // conditional rendering
   if (isLoading) {
     return <div>Loading...</div>;
@@ -37,10 +38,32 @@ export const Cat = () => {
     return <div>404</div>;
   }
 
+
   return (
-    <div className={styles.CatDetail}>
-      <CatListItem {...cat} />
-    </div>
+    <>
+      <div className={styles.catDetail}>
+        <div className={styles.catName}>{cat.name}</div>
+        <img className={styles.catImage} src={cat.image} alt="cat" />
+        <ul className={styles.list}>
+          <li>{`Breed: ${cat.breed}`}</li>
+          <li>{`Age: ${cat.age}`}</li>
+          <li>{`Gender: ${cat.gender}`}</li>
+          <li>{`Adoption fee: ${cat.adoption_fee}$`}</li>
+          <li>{`Status: ${cat.available ? "Available" : "Reserved"}`}</li>
+        </ul>
+        <div className={styles.catDescription}>{cat.description}</div>
+        {cat.available ? (<button className={styles.buttonRsv} onClick={!cat.available}>Reserve</button>) : ""}
+      </div>
+      <div className={styles.arrows}>
+        <Link to={`/cats/${cat.id-1}`}>
+          <div className={styles.arrowIconLeft} />
+        </Link>
+        <Link to={`/cats/${cat.id+1}`}>
+          {(cat.id + 1) ? (<div className={styles.arrowIconRight}/>) : ""}
+        </Link>
+      </div>
+
+    </>
   );
 };
 

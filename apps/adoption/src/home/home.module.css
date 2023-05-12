@@ -1,8 +1,11 @@
 
+body {
+    background-color: #daad8679;
+}
+
 .homeMain {
     padding: 10px;
     font-family: 'Poppins', sans-serif; 
-    background-color: #daad8679;
     color: #5f3f16;
 
 }
@@ -11,7 +14,7 @@
 
     font-weight: bold;
     /* color: #5f3f16; */
-    margin-top: 100px;
+    margin-top: 150px;
     text-align: center;
     font-size: 50px;
 
@@ -80,7 +83,7 @@
     max-width: 300px;
     margin-bottom: -40px;
     height: 300px;
-    
+    border-radius: 20px;
 }
 
 
@@ -138,4 +141,8 @@
     font-weight: 700;
     font-size: x-large;
     text-align: center;
+}
+
+.pupilImage {
+    border-radius: 20px;
 }

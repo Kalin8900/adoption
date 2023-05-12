@@ -1,0 +1,152 @@
+.catDetail {
+    font-family: 'Poppins', sans-serif; 
+    color: #5f3f16;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center
+}
+
+.catDescription {
+    margin-top: 50px;
+}
+
+.catName {
+    padding-top: 180px;
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+    
+}
+
+.catImage {
+    margin-top: 50px;
+    border-radius: 10px;
+    width: 800px;
+    outline: solid #5f3f16b6;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.664);
+}
+
+.list {
+    margin-top: 30px;
+    font-weight: 700;
+    font-size: 20px;
+    list-style: none;
+}
+
+.arrows {
+    display: flex;
+    justify-content:space-around;
+
+}
+
+.arrowIconLeft {
+    margin-top: -530px;
+    margin-bottom: 600px;
+    scale: 5;
+    color: #5f3f16;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    border: 2px solid;
+    border-radius: 4px;
+    width: 22px;
+    height: 22px
+   }
+
+.arrowIconLeft:hover {
+    background-color:#5f3f165e;
+   }
+   
+   .arrowIconLeft::after,
+   .arrowIconLeft::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    transform: rotate(45deg);
+    top: 6px;
+    left: 5px
+   }
+   
+   .arrowIconLeft::after {
+    left: 9px
+   } 
+
+   .arrowIconRight {
+    color: #5f3f16;
+    scale: 5;
+    margin-top: -530px;
+    margin-bottom: 600px;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    border: 2px solid;
+    border-radius: 4px;
+    width: 22px;
+    height: 22px
+   }
+
+   
+.arrowIconRight:hover {
+    background-color:#5f3f165e;
+   }
+   
+   .arrowIconRight::after,
+   .arrowIconRight::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid;
+    border-top: 2px solid;
+    transform: rotate(45deg);
+    top: 6px;
+    right: 5px
+   }
+   
+   .arrowIconRight::after {
+    right: 9px
+   } 
+
+
+.buttonRsv {
+    margin-bottom: -50px;
+    margin-top: 50px;
+    justify-content: center;
+    scale: 1.2;
+    background-color: transparent;
+    border: 2px solid #5f3f16;
+    border-radius: .75rem;
+    box-sizing: border-box;
+    color: #5f3f16;
+    cursor: pointer;
+    flex: 0 0 auto;
+    font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    padding: .75rem 1.2rem;
+    text-align: center;
+    text-decoration: none #6B7280 solid;
+    text-decoration-thickness: auto;
+    transition-duration: .2s;
+    transition-property: background-color,border-color,color,fill,stroke;
+    transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: auto;
+}
+
+.buttonRsv:hover {
+  background-color: #5f3f165e;
+}

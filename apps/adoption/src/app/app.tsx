@@ -11,7 +11,7 @@ export function App() {
     <BrowserRouter>
       <Routes>
         <Route path={AppRoute.Home} element={<Layout />}>
-          <Route path={AppRoute.Home} element={<HomePage />} />
+          <Route index element={<HomePage />} />
           <Route path={AppRoute.Cats} element={<CatListPage />} />
           <Route path={AppRoute.Cat} element={<CatPage />} />
           <Route path={AppRoute.Info} element={<InfoPage />} />
