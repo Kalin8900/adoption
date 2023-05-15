@@ -55,6 +55,11 @@ export const Cat = () => {
         </ul>
         <div className={styles.catDescription}>{cat.description}</div>
         {cat.available ? (<button className={styles.buttonRsv} onClick={handleClick}>Reserve</button>) : ""}
+        <Link
+        to=".."
+        relative="path"
+        className={styles.backButton}
+        >&larr; <span>Back to all cats</span></Link>
       </div>
       <div className={styles.arrows}>
         <Link to={`/cats/${cat.id-1}`}>
