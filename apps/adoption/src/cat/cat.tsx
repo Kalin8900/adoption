@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Cat as ICat, getCatById } from '../api/getCatById';
-import { CatListItem } from '../cat-list-item/cat-list-item';
 import styles from '../cat/cat.module.css';
 // import { useApi } from '../hooks/useApi';
 
