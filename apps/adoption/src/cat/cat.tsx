@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Cat as ICat, getCatById } from '../api/getCatById';
 import styles from '../cat/cat.module.css';
+import { Error } from '../error/error';
 // import { useApi } from '../hooks/useApi';
 
 export const Cat = () => {
@@ -33,11 +34,11 @@ export const Cat = () => {
 
   // conditional rendering
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className={styles.loading}>Loading...</div>;
   }
 
   if (!cat) {
-    return <div>404</div>;
+    return <Error />
   }
 
 
@@ -62,12 +63,14 @@ export const Cat = () => {
         >&larr; <span>Back to all cats</span></Link>
       </div>
       <div className={styles.arrows}>
-        <Link to={`/cats/${cat.id-1}`}>
+        {cat.id > 1 ? 
+        (<Link to={`/cats/${cat.id-1}`}>
           <div className={styles.arrowIconLeft} />
-        </Link>
-        <Link to={`/cats/${cat.id+1}`}>
+        </Link>) : <div className={styles.arrowIconLeftTrans} />}
+        {getCatById(Number(cat.id +1)) ? 
+        (<Link to={`/cats/${cat.id+1}`}>
           <div className={styles.arrowIconRight}/>
-        </Link>
+        </Link>) : <div className={styles.arrowIconRightTrans}/>}
       </div>
 
     </>
