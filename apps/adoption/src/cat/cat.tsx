@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Cat as ICat, getCatById } from '../api/getCatById';
 import styles from '../cat/cat.module.css';
 import { Error } from '../error/error';
+import { Loading } from '../loadingPages/loading';
 // import { useApi } from '../hooks/useApi';
 
 export const Cat = () => {
@@ -34,7 +35,7 @@ export const Cat = () => {
 
   // conditional rendering
   if (isLoading) {
-    return <div className={styles.loading}>Loading...</div>;
+    return <Loading />
   }
 
   if (!cat) {
