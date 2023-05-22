@@ -1,23 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CatListItem } from '../cat-list-item/cat-list-item';
-import cats from '../api/data.json';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams,  useLoaderData  } from 'react-router-dom';
 import styles from "../cat-list-item/cat-list-item.module.css"
 import { getAllCats } from '../api/getAllCats';
-
+import { Cat } from '../api/getCatById';
 
 // zamiast importować plik data.json napisz funkcję w folderze api podobną do getCatById, która Ci zwróci wszystkie koty lub null
 // obsłuz ładowanie i wszystko inne jak w Cat Page
 
+export function loader() {
+  return (getAllCats())
+}
+
 export const CatList = () => {
-  
-  const cats = getAllCats()
+
+  const cats = useLoaderData() as Cat[]
   const [searchParams, setSearchParams] = useSearchParams()
   const availableFilter = searchParams.get("available")
+  // const feeFilter = searchParams.get("adoption_fee")
 
   const displayedCats = availableFilter
-  ? (cats.filter(cat => cat.available.toString() === availableFilter))
+  ? (cats?.filter(cat => cat.available.toString() === availableFilter))
   : cats
+
+
 
   return (
     <div className={styles.catListContainer}>
@@ -26,13 +32,24 @@ export const CatList = () => {
           to="?available=true"
           className={styles.button}
           >Available</Link>
-          <Link 
-          to="?adoption_fee<fee"
+          {/* <select
+          id="fee"
+          value="adoption_fee"
+          onChange=
+          name="fee"
+        >
+          <option value="50">50</option>
+          <option value="100">100</option>
+          <option value="200">200</option>
+        </select> */}
+        <Link
+          to="/cats"
+          relative="path"
           className={styles.button}
-          >fee</Link>
+          >Clear filters</Link>
       </div>
       <div className={styles.catList}>
-      {displayedCats.map((cat) => (
+      {displayedCats?.map((cat) => (
         <CatListItem
           id={cat.id}
           name={cat.name}
