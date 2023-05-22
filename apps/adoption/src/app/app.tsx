@@ -1,23 +1,26 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { createBrowserRouter, Route,  RouterProvider, createRoutesFromElements } from 'react-router-dom';
 import { CatListPage } from '../pages/cat-list.page';
 import { HomePage } from '../pages/home.page';
 import { CatPage } from '../pages/cat.page';
 import { InfoPage } from '../pages/info.page';
 import { Route as AppRoute } from '../routes';
 import { Layout } from '../layout/layout';
+import { loader as CatListLoader} from "../cat-list/cat-list";
+import { Error } from "../error/error"
+
+
+  const router = createBrowserRouter(createRoutesFromElements(
+    <Route path={AppRoute.Home} element={<Layout />}>
+      <Route index element={<HomePage />} />
+      <Route path={AppRoute.Cats} element={<CatListPage />} loader={CatListLoader}  errorElement={<Error />} />
+      <Route path={AppRoute.Cat} element={<CatPage />} />
+      <Route path={AppRoute.Info} element={<InfoPage />} />
+    </Route>
+  ))
 
 export function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path={AppRoute.Home} element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path={AppRoute.Cats} element={<CatListPage />} />
-          <Route path={AppRoute.Cat} element={<CatPage />} />
-          <Route path={AppRoute.Info} element={<InfoPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <RouterProvider router={router} />
   );
 }
 
