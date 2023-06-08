@@ -1,15 +1,12 @@
-import React from 'react';
+import  React from 'react';
 import { CatListItem } from '../cat-list-item/cat-list-item';
-import { Link, useSearchParams,  useLoaderData  } from 'react-router-dom';
+import { Link, useSearchParams,  useLoaderData, defer, Await  } from 'react-router-dom';
 import styles from "../cat-list-item/cat-list-item.module.css"
 import { getAllCats } from '../api/getAllCats';
 import { Cat } from '../api/getCatById';
 
-// zamiast importować plik data.json napisz funkcję w folderze api podobną do getCatById, która Ci zwróci wszystkie koty lub null
-// obsłuz ładowanie i wszystko inne jak w Cat Page
-
 export function loader() {
-  return (getAllCats())
+  return getAllCats()
 }
 
 export const CatList = () => {
@@ -20,7 +17,7 @@ export const CatList = () => {
   // const feeFilter = searchParams.get("adoption_fee")
 
   const displayedCats = availableFilter
-  ? (cats?.filter(cat => cat.available.toString() === availableFilter))
+  ? (cats.filter(cat => cat.available.toString() === availableFilter))
   : cats
 
 
@@ -35,7 +32,6 @@ export const CatList = () => {
           {/* <select
           id="fee"
           value="adoption_fee"
-          onChange=
           name="fee"
         >
           <option value="50">50</option>

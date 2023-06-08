@@ -6,14 +6,15 @@ import { InfoPage } from '../pages/info.page';
 import { Route as AppRoute } from '../routes';
 import { Layout } from '../layout/layout';
 import { loader as CatListLoader} from "../cat-list/cat-list";
+import { loader as CatPageLoader} from "../cat/cat"
 import { Error } from "../error/error"
 
 
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path={AppRoute.Home} element={<Layout />}>
-      <Route index element={<HomePage />} />
+      <Route index element={<HomePage />}/>
       <Route path={AppRoute.Cats} element={<CatListPage />} loader={CatListLoader}  errorElement={<Error />} />
-      <Route path={AppRoute.Cat} element={<CatPage />} />
+      <Route path={AppRoute.Cat} element={<CatPage />} loader={CatPageLoader} errorElement={<Error />}/>
       <Route path={AppRoute.Info} element={<InfoPage />} />
     </Route>
   ))
