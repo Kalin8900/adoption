@@ -1,19 +1,16 @@
 import React from "react"
 import styles from "./home.module.css"
 import { HomeCard } from "./home.cards"
-import { getCatById } from "../api/getCatById"
-import { useEffect, useState } from 'react';
-import { PupilsProps } from "./pupils"
+import { Pupil } from "./pupils"
+import { useLoaderData, defer, Await } from 'react-router-dom';
+import { getRecomCats } from "../api/getRecomCats";
+
 
 
 export const Home = () => {
 
-    const [pupil, setPupil] = useState<typeof PupilsProps | null>(null);
-    
-    useEffect(() => {
-        setPupil(getCatById(1))
-    }, [])
-
+    const allPupils = getRecomCats()
+    const pupils = allPupils.slice(1,5)
     return (
         <div className={styles.homeMain}>
             <h1 className={styles.homeH1}>Adopt a cat</h1><br />
@@ -31,9 +28,19 @@ export const Home = () => {
             <div>
                 <h2 className={styles.homePupils}>Some of our pupils:</h2>
                 <div className={styles.pupils}>
-                    <PupilsProps {...pupil}/>
+                    {pupils.map((pupil) => (
+                    <Pupil 
+                    id={pupil.id}
+                    name={pupil.name}
+                    image={pupil.image}/>
+                    ))}
                 </div>
             </div>
         </div>
     )
 }
+// stworz nowy endpoint (nowa funkcja w api), któa zwraca rekomendowane koty (same id kota)
+// wywolac tutaj
+// zmapować otrzymana liste id na komponenty pupil
+
+//chce aby pokazywalo mi 5 przykladowych kotów (potrzebuje properties: id, image, name)

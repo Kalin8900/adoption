@@ -42,7 +42,7 @@ body {
 }
 
 .homePupils {
-    margin-top: 50px;
+    margin-top: 100px;
     margin-left: 200px;
     margin-right: 200px;
 }
@@ -123,8 +123,7 @@ body {
    } 
 
 .pupil {
-    margin-left: 300px;
-    margin-top: 30px;
+    margin-top: 40px;
     max-width: 320px;
     border: #BC986A solid;
     padding: 10px;
@@ -145,4 +144,9 @@ body {
 
 .pupilImage {
     border-radius: 20px;
+}
+
+.pupils {
+    display: flex;
+    justify-content:space-evenly
 }

@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import styles from './cat-list-item.module.css';
 
-interface CatListItemProps {
+export interface CatListItemProps {
   id: number;
   name: string;
   age: number;
