@@ -1,0 +1,23 @@
+/* searchbar */
+
+.paper {
+    padding: '2px 4px';
+    display: flex;
+    align-items: center;
+    height: fit-content;
+}
+
+.input {
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10px;
+}
+
+/* slider */
+.sliderBox {
+    width: 200px;
+    font-family: 'Poppins', sans-serif;
+    color: #5f3f16;
+    font-weight: 600;
+    font-size: 1.125rem;
+    margin-top: -20px;
+}
