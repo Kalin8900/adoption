@@ -39,8 +39,3 @@ export const Home = () => {
         </div>
     )
 }
-// stworz nowy endpoint (nowa funkcja w api), któa zwraca rekomendowane koty (same id kota)
-// wywolac tutaj
-// zmapować otrzymana liste id na komponenty pupil
-
-//chce aby pokazywalo mi 5 przykladowych kotów (potrzebuje properties: id, image, name)

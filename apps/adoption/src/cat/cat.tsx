@@ -7,7 +7,7 @@ import { Loading } from '../loadingPages/loading';
 // import { useApi } from '../hooks/useApi';
 
 export function loader({ params }:{params: {id: number}}) {
-  return defer({cat: getCatById(params.id)})
+  return ({cat: getCatById(params.id)})
 } 
 
 export const Cat = () => {

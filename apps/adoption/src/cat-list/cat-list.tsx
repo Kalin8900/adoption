@@ -1,11 +1,12 @@
-import  React from 'react';
+import  React, { useState } from 'react';
 import { CatListItem } from '../cat-list-item/cat-list-item';
 import { Link, useSearchParams,  useLoaderData, defer, Await  } from 'react-router-dom';
 import styles from "../cat-list-item/cat-list-item.module.css"
 import { getAllCats } from '../api/getAllCats';
 import { Cat } from '../api/getCatById';
-import SearchBar from "../cat-list/searchbar"
+import { SearchBar } from './searchbar';
 import { RangeSlider } from './range-slider';
+
 
 export function loader() {
   return getAllCats()
@@ -16,7 +17,7 @@ export const CatList = () => {
   const cats = useLoaderData() as Cat[]
   const [searchParams, setSearchParams] = useSearchParams()
   const availableFilter = searchParams.get("available")
-  const feeFilter = searchParams.get("adoption_fee")
+  // const feeFilter = searchParams.get("adoption_fee")
   const genderFilter = searchParams.get("gender")
 
   function handleFilterChange(key: string, value: string) {
@@ -30,10 +31,38 @@ export const CatList = () => {
     })
 }
 
-  const displayedCats = availableFilter
+/// Search Bar
+
+  const [input, setInput] = useState<string>("")
+
+  const searchCats = cats.filter(cat => {
+    return cat.name.toLocaleLowerCase().includes(input.toLowerCase())
+  })
+
+  const updateInput = (input: string) => {
+    setInput(input)
+  }
+
+///
+
+  function clearFilters(){
+    setSearchParams()
+  }
+/// Filters
+
+  const availableCats = availableFilter
   ? (cats.filter(cat => (cat.available.toString() === availableFilter)))
   : cats
 
+  const genderCats = genderFilter
+  ? (cats.filter(cat => (cat.gender === genderFilter)))
+  : cats
+
+
+  const filteredCats = genderCats.filter(cat => availableCats.includes(cat))
+  const displayedCats = filteredCats.filter(cat => searchCats.includes(cat))
+
+///
 
   return (
     <div className={styles.catListContainer}>
@@ -46,16 +75,28 @@ export const CatList = () => {
           className={availableFilter === "true" ? styles.buttonActive : styles.button}
           >Available
         </button>
-        {availableFilter || feeFilter || genderFilter ? (
         <button
-          onClick={() => handleFilterChange("available", "null")}
-          className={styles.button}
+          onClick={() => handleFilterChange("gender", "Male")}
+          className={genderFilter === "Male" ? styles.buttonActive : styles.button}
+          >Male
+        </button>
+        <button
+          onClick={() => handleFilterChange("gender", "Female")}
+          className={genderFilter === "Female" ? styles.buttonActive : styles.button}
+          >Female
+        </button>
+        <button
+          disabled={availableFilter || genderFilter ? false : true}
+          onClick={() => clearFilters()}
+          className={availableFilter || genderFilter ? styles.button : styles.disabledButton}
           >Clear filters
-        </button>)
-        : null}
+        </button>
       </div>
       <div className={styles.searchBar}>
-        <SearchBar/>
+        <SearchBar
+        input={input}
+        onChange={updateInput}
+        />
       </div>
       <div className={styles.catList}>
       {displayedCats?.map((cat) => (
