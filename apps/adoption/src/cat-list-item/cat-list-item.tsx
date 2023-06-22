@@ -21,7 +21,6 @@ export const CatListItem: FC<CatListItemProps> = (props) => {
   const badgeText = 'Reserved';
 
   return (
-
       <div key={props.id} className={styles.containerCats}>
         <div className={styles.cats}>
           <Link to={`${props.id}`}>
