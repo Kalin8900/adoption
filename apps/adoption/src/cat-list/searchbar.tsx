@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { InputBase } from "@mui/material";
-import IconButton from "@mui/material/IconButton/IconButton";
-import SearchIcon from "@mui/icons-material/Search"
 import Button from "@mui/material/Button/Button";
 import Paper from "@mui/material/Paper/Paper";
 import styles from "../cat-list/filters.module.css"
@@ -19,10 +17,10 @@ export const SearchBar = ({input, onChange}: {input: string; onChange: any}) => 
             onChange={(e) => onChange(e.target.value)}
             value={input}
             />
-                <Button disabled>Clear</Button>
-                <IconButton type="submit">
-                    <SearchIcon />
-                </IconButton>
+                <Button 
+                disabled={input ? false : true}
+                onClick={() =>  onChange(input="")}
+                >Clear</Button>
         </Paper>
     )
 }
