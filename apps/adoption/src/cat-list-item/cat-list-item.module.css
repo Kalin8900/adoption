@@ -84,8 +84,8 @@
   display: flex;
   justify-content: space-evenly;
   max-width: 800px;
-  margin-left: 100px;
-  gap: 20px;
+  margin-left: 110px;
+  gap: 50px;
 }
 
 .button {
