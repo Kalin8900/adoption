@@ -3,12 +3,16 @@ import Slider from "@mui/material/Slider"
 import Box from "@mui/material/Box"
 import styles from "../cat-list/filters.module.css"
 
-export const RangeSlider = () => {
-    const [value, setValue] = useState<number []>([25, 60]);
+// export const RangeSlider = ({priceMin, priceMax, onChange}: {priceMin: number; priceMax: number; onChange: any}) => {
+//     const [value, setValue] = useState<number []>([priceMin, priceMax]);
 
-    const handleChange = (event: Event, newValue: number | number []) => {
-        setValue(newValue as number[])
-    }
+//     const handleChange = (event: Event, newValue: number | number []) => {
+//         setValue(newValue as number[])
+//     }
+
+export const RangeSlider = ({value, handleChange}: {value: number [], handleChange: any}) => {
+
+
     return (
         <Box className={styles.sliderBox}>
             <div>Adoption fee:</div>

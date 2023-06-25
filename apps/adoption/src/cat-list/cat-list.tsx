@@ -17,7 +17,6 @@ export const CatList = () => {
   const cats = useLoaderData() as Cat[]
   const [searchParams, setSearchParams] = useSearchParams()
   const availableFilter = searchParams.get("available")
-  // const feeFilter = searchParams.get("adoption_fee")
   const genderFilter = searchParams.get("gender")
 
   function handleFilterChange(key: string, value: string) {
@@ -31,8 +30,7 @@ export const CatList = () => {
     })
   }
 
-/// Search Bar
-
+  /// Search Bar
   const [input, setInput] = useState<string>("")
 
   const searchCats = cats.filter(cat => {
@@ -42,14 +40,29 @@ export const CatList = () => {
   const updateInput = (input: string) => {
     setInput(input)
   }
+  ///
 
-///
+  /// Range Slider
+  const [value, setValue] = useState<number []>([25, 220]);
+      
+  const handleChange = (event: Event, newValue: number | number []) => {
+      setValue(newValue as number[])
+  }
 
-  function clearFilters(){
+  const feeFilter = cats.filter(cat => {
+    return (cat.adoption_fee >= value[0] && cat.adoption_fee <= value[1])
+  })
+  ///
+
+  /// clear filters button
+  const clearFilters = () => {
+    setValue([25,220])
     setSearchParams()
   }
-/// Filters
+  const disabledButton = (availableFilter || genderFilter ? false : true) && (value[0] === 25 && value[1] === 220)
+  ///
 
+  /// Filters
   const availableCats = availableFilter
   ? (cats.filter(cat => (cat.available.toString() === availableFilter)))
   : cats
@@ -60,15 +73,18 @@ export const CatList = () => {
 
 
   const filteredCats = genderCats.filter(cat => availableCats.includes(cat))
-  const displayedCats = filteredCats.filter(cat => searchCats.includes(cat))
-
-///
+  const searchedCats = filteredCats.filter(cat => searchCats.includes(cat))
+  const displayedCats = searchedCats.filter(cat => feeFilter.includes(cat))
+  ///
 
   return (
     <div className={styles.catListContainer}>
       <div className={styles.filterButtons}> 
         <div className={styles.slider}>
-          <RangeSlider />
+          <RangeSlider 
+          value={value}
+          handleChange={handleChange}
+          />
         </div>
           <button
             onClick={() => handleFilterChange("available", "true")}
@@ -86,9 +102,9 @@ export const CatList = () => {
             >Female
           </button>
           <button
-            disabled={availableFilter || genderFilter ? false : true}
+            disabled={disabledButton}
             onClick={() => clearFilters()}
-            className={availableFilter || genderFilter ? styles.button : styles.disabledButton}
+            className={!disabledButton ? styles.button : styles.disabledButton}
             >Clear filters
           </button>
         </div>

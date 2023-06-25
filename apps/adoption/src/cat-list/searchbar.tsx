@@ -19,7 +19,7 @@ export const SearchBar = ({input, onChange}: {input: string; onChange: any}) => 
             />
                 <Button 
                 disabled={input ? false : true}
-                onClick={() =>  onChange(input="")}
+                onClick={() =>  onChange(input="") }
                 >Clear</Button>
         </Paper>
     )
