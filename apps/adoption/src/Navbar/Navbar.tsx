@@ -3,6 +3,7 @@ import Image from '../assets/catdoption-low-resolution-color-logo.png';
 import styles from '../navbar/navbar.module.css';
 import { Route } from '../routes';
 import { useGetIsCurrentPath } from '../api/useIsCurrentPath';
+import Icon from "../assets/cat-profile.png"
 
 export const Navbar = () => {
   const isCurrentPath = useGetIsCurrentPath();
@@ -41,7 +42,16 @@ export const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <form className={styles.form}>
+        <Link 
+          to={Route.Login}
+          className={isCurrentPath(Route.Login) ? styles.active : ''}>
+          <img 
+            alt="avatar"
+            src={Icon}
+            className={styles.loginIcon}
+          />
+        </Link>
+        {/* <form className={styles.form}>
           <input className={styles.Username} placeholder="Username" />
           <input className={styles.Password} placeholder="Password" />
           <div className={styles.signUp}>
@@ -49,7 +59,7 @@ export const Navbar = () => {
             Sign Up Now!
           </div>
           <div className={styles.signIn}>Sign in</div>
-        </form>
+        </form> */}
       </nav>
     </div>
   );

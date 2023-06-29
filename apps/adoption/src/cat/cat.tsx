@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Link, useParams, useLoaderData, defer, Await } from 'react-router-dom';
 import { Cat as ICat, getCatById } from '../api/getCatById';
 import styles from '../cat/cat.module.css';
@@ -6,51 +6,48 @@ import { Error } from '../error/error';
 import { Loading } from '../loadingPages/loading';
 // import { useApi } from '../hooks/useApi';
 
-export function loader({ params }:{params: {id: number}}) {
-  return ({cat: getCatById(params.id)})
-} 
+// export function loader({ params }:{params: {id: number}}) {
+//   return defer({cat: getCatById(params.id)})
+// } 
 
 export const Cat = () => {
-  // const { id } = useParams();
+  const { id } = useParams();
 
-  const cat = useLoaderData() as ICat
-  // const [cat, setCat] = useState<ICat | null>(null);
-  // const [isLoading, setIsLoading] = useState(true);
+  const [cat, setCat] = useState<ICat | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // useEffect(() => {
-  //   if (id) {
-  //     (async () => {
-  //       return new Promise((resolve) => {
-  //         setTimeout(() => {
-  //           const cat = getCatById(Number(id));
-  //           setCat(cat);
-  //           setIsLoading(false);
-  //           resolve(cat);
-  //         }, 2000);
-  //       });
-  //     })(); // IIFE
-  //   }
-  // }, [id]);
-
+  useEffect(() => {
+    if (id) {
+      (async () => {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            const cat = getCatById(Number(id));
+            setCat(cat);
+            setIsLoading(false);
+            resolve(cat);
+          }, 2000);
+        });
+      })(); // IIFE
+    }
+  }, [id]);
 
 
-//  const handleClick = () => {
-//   if (cat){
-//     const reservedCat = {...cat, available: false}
-//     setCat(reservedCat)
-//   }
-//  }
 
-//   // conditional rendering
-//   if (isLoading) {
-//     return <Loading />
-//   }
+ const handleClick = () => {
+  if (cat){
+    const reservedCat = {...cat, available: false}
+    setCat(reservedCat)
+  }
+ }
 
-//   if (!cat) {
-//     return <Error />
-//   }
+  // conditional rendering
+  if (isLoading) {
+    return <Loading />
+  }
 
-
+  if (!cat) {
+    return <Error />
+  }
 
   return (
     <Suspense fallback={<Loading />}>
@@ -66,7 +63,7 @@ export const Cat = () => {
             <li>{`Status: ${cat.available ? "Available" : "Reserved"}`}</li>
           </ul>
           <div className={styles.catDescription}>{cat.description}</div>
-          {/* {cat.available ? (<button className={styles.buttonRsv} onClick={handleClick}>Reserve</button>) : ""} */}
+          {cat.available ? (<button className={styles.buttonRsv} onClick={handleClick}>Reserve</button>) : ""}
           <Link
           to=".."
           relative="path"

@@ -2,5 +2,6 @@ export enum Route {
   Cats = '/cats',
   Home = '/',
   Cat = '/cats/:id',
-  Info = '/info'
+  Info = '/info',
+  Login = '/login'
 }

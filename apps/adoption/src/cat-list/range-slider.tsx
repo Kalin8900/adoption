@@ -10,7 +10,7 @@ import styles from "../cat-list/filters.module.css"
 //         setValue(newValue as number[])
 //     }
 
-export const RangeSlider = ({value, handleChange}: {value: number [], handleChange: any}) => {
+export const RangeSlider = ({value, handleChange, min, max}: {value: number [], handleChange: any, min: number, max: number}) => {
 
 
     return (
@@ -22,8 +22,8 @@ export const RangeSlider = ({value, handleChange}: {value: number [], handleChan
             onChange={handleChange}
             valueLabelDisplay="on"
             getAriaLabel={() => "slider"}
-            min={25}
-            max={220}
+            min={min}
+            max={max}
             disableSwap
             />
         </Box>
