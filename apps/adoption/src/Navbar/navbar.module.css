@@ -209,3 +209,48 @@
     scale: 0.3;
     margin: 0px 0 0 -350px;
   }
+
+  /* LOGIN  */
+
+    .loginIcon,
+    .loginIcon::after,
+    .loginIcon::before {
+     display: block;
+     box-sizing: border-box;
+     border: 2px solid;
+     border-radius: 100px;
+     color: #5f3f16;
+    }
+    
+    .loginIcon {
+     overflow: hidden;
+     transform: scale(var(--ggs,1));
+     width: 22px;
+     height: 22px;
+     position: fixed;
+     color: #5f3f16;
+     scale: 2.5;
+     right: 0;
+     margin-right: 100px;
+     margin-top: -11px;
+    }
+    
+    .loginIcon::after,
+    .loginIcon::before {
+     content: "";
+     position: absolute;
+     top: 2px;
+     left: 5px;
+     width: 8px;
+     height: 8px;
+     color: #5f3f16;
+    }
+    
+    .loginIcon::after {
+     border-radius: 200px;
+     top: 11px;
+     left: 0px;
+     width: 18px;
+     height: 18px;
+     color: #5f3f16;
+    } 
