@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React from 'react'
+import styles from "./login.module.css"
 import {
     useLoaderData,
     useNavigation,
@@ -6,39 +7,65 @@ import {
     redirect,
     useActionData
 } from "react-router-dom"
-import styles from "./login.module.css"
-import { LoginForm } from "./login.form"
+import { loginUser } from '../api/loginUser'
 
+
+export function loader({ request } : { request: Request }) {
+    return new URL(request.url).searchParams.get("message")
+}
+
+export async function action({ request } : { request: Request }) {
+    const formData = await request.formData()
+    const email = formData.get("email") as string
+    const password = formData.get("password") as string
+    const pathname = new URL(request.url)
+        .searchParams.get("redirectTo") || "/cats"
+    
+    try {
+        const data = await loginUser(email, password)
+        return redirect(pathname)
+    } catch(err: any) {
+        return err.message
+    }
+}
 
 export const Login = () => {
-   
-    const adminUser = { 
-        email: "admin@admin.com",
-        password: "admin123"
-    }
-
-    const [user, setUser] = useState({name: "", email: ""});
-    const [error, setError] = useState("")
-
-    const LoginDetails = (details: string) => {
-        console.log(details)
-    }
-
-    const Logout = () => {
-        console.log("Logout")
-    }
+    const errorMessage = useActionData() as string
+    const message = useLoaderData() as string
+    const navigation = useNavigation()
 
     return (
-        <div className={styles.login}>
-            {user.email !== "" ? (
-                <div className={styles.welcome}>
-                    <h2>Welcome, <span>{user.name}</span></h2>
-                    <button>Logout</button>
-                </div>
-            )
-            : <LoginForm />}
+        <div className={styles.formContainer}>
+            <h1 className={styles.title}>Sign in to your account</h1>
+            {message && <h3 className={styles.red}>{message}</h3>}
+            {errorMessage && <h3 className={styles.red}>{errorMessage}</h3>}
+
+            <Form 
+                method="post" 
+                className={styles.form}
+                replace
+            >
+                <input
+                    name="email"
+                    type="email"
+                    placeholder="Email address"
+                />
+                <input
+                    name="password"
+                    type="password"
+                    placeholder="Password"
+                />
+                <button
+                    disabled={navigation.state === "submitting"}
+                    className={styles.button}
+                >
+                    {navigation.state === "submitting"
+                        ? "Logging in..."
+                        : "Log in"
+                    }
+                </button>
+            </Form>
         </div>
     )
-
 }
-    
+

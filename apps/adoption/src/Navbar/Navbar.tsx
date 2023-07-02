@@ -51,15 +51,6 @@ export const Navbar = () => {
             className={styles.loginIcon}
           />
         </Link>
-        {/* <form className={styles.form}>
-          <input className={styles.Username} placeholder="Username" />
-          <input className={styles.Password} placeholder="Password" />
-          <div className={styles.signUp}>
-            Don't have account? <br />
-            Sign Up Now!
-          </div>
-          <div className={styles.signIn}>Sign in</div>
-        </form> */}
       </nav>
     </div>
   );
