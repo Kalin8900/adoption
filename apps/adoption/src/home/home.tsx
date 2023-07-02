@@ -2,10 +2,7 @@ import React from "react"
 import styles from "./home.module.css"
 import { HomeCard } from "./home.cards"
 import { Pupil } from "./pupils"
-import { useLoaderData, defer, Await } from 'react-router-dom';
 import { getRecomCats } from "../api/getRecomCats";
-
-
 
 export const Home = () => {
 
