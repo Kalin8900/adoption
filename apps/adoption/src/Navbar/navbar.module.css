@@ -254,3 +254,46 @@
      height: 18px;
      color: #5f3f16;
     } 
+
+      .logged,
+    .logged::after,
+    .logged::before {
+     display: block;
+     box-sizing: border-box;
+     border: 2px solid;
+     border-radius: 100px;
+     color: #5f3f1648;
+    }
+    
+    .logged {
+     overflow: hidden;
+     transform: scale(var(--ggs,1));
+     width: 22px;
+     height: 22px;
+     position: fixed;
+     color: #5f3f163b;
+     scale: 2.5;
+     right: 0;
+     margin-right: 100px;
+     margin-top: -11px;
+    }
+    
+    .logged::after,
+    .logged::before {
+     content: "";
+     position: absolute;
+     top: 2px;
+     left: 5px;
+     width: 8px;
+     height: 8px;
+     color: #5f3f165e;
+    }
+    
+    .logged::after {
+     border-radius: 200px;
+     top: 11px;
+     left: 0px;
+     width: 18px;
+     height: 18px;
+     color: #5f3f164b;
+    } 
