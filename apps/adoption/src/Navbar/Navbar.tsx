@@ -48,7 +48,8 @@ export const Navbar = () => {
           <img 
             alt="avatar"
             src={Icon}
-            className={styles.loginIcon}
+            className={localStorage.getItem("loggedin") === "true" ? styles.logged : styles.loginIcon}
+            // className={styles.loginIcon}
           />
         </Link>
       </nav>

@@ -7,8 +7,11 @@ import { Cat } from '../api/getCatById';
 import { SearchBar } from './searchbar';
 import { RangeSlider } from './range-slider';
 import { Loading } from '../loadingPages/loading';
+import { requireAuth } from '../utils';
 
-export const loader = () => {
+
+export async function loader({ request } : {request: Request}) {
+  await requireAuth(request)
   return getAllCats()
 }
 

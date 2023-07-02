@@ -19,7 +19,7 @@ export async function action({ request } : { request: Request }) {
     const email = formData.get("email") as string
     const password = formData.get("password") as string
     const pathname = new URL(request.url)
-        .searchParams.get("redirectTo") || "/cats"
+        .searchParams.get("redirectTo") as string || "/cats"
     
     try {
         const data = await loginUser(email, password)
