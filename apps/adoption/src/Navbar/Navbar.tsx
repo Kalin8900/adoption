@@ -7,6 +7,10 @@ import Icon from "../assets/cat-profile.png"
 
 export const Navbar = () => {
   const isCurrentPath = useGetIsCurrentPath();
+  function fakeLogOut() {
+    localStorage.removeItem("loggedin")
+    console.log(localStorage.getItem("loggedin"))
+}
 
   return (
     <div>
@@ -49,9 +53,14 @@ export const Navbar = () => {
             alt="avatar"
             src={Icon}
             className={localStorage.getItem("loggedin") === "true" ? styles.logged : styles.loginIcon}
-            // className={styles.loginIcon}
           />
         </Link>
+        {localStorage.getItem("loggedin") === "true" ?
+        <button 
+        onClick={fakeLogOut}
+        className={styles.logout}
+        >Logout</button>
+        : ""}
       </nav>
     </div>
   );

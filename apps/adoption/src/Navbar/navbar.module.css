@@ -275,7 +275,7 @@
      scale: 2.5;
      right: 0;
      margin-right: 100px;
-     margin-top: -11px;
+     margin-top: -28px;
     }
     
     .logged::after,
@@ -297,3 +297,35 @@
      height: 18px;
      color: #5f3f164b;
     } 
+
+.logout {
+  background-color: #5f3f16;
+  border: none;
+  border-radius: 6px;
+  height: 25px;
+  margin-top: 22px;
+  color: #BC986A;
+  font-family: 'Proza Libre', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  position: fixed;
+  margin-right: 78px;
+  right: 0;
+  margin-top: 50px;
+}
+
+.logout:hover {
+  background-color: #5f3f1669;
+  border: none;
+  border-radius: 6px;
+  height: 25px;
+  margin-top: 22px;
+  color: #5f3f16;
+  font-family: 'Proza Libre', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  position: fixed;
+  margin-right: 78px;
+  right: 0;
+  margin-top: 50px;
+}
