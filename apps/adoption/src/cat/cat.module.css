@@ -250,3 +250,17 @@
    .arrowIconRightTrans::after {
     right: 9px
    } 
+   .reservedCat {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 50px;
+    color: red;
+   }
+
+
+   .logIn {
+    color: red;
+   }
+   .logIn:hover {
+    text-decoration: underline;
+   }

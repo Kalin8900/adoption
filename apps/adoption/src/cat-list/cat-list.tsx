@@ -1,17 +1,15 @@
 import  React, { useState, Suspense } from 'react';
 import { CatListItem } from '../cat-list-item/cat-list-item';
-import { Link, useSearchParams,  useLoaderData, defer, Await } from 'react-router-dom';
+import { useSearchParams,  useLoaderData, defer, Await } from 'react-router-dom';
 import styles from "../cat-list-item/cat-list-item.module.css"
 import { getAllCats } from '../api/getAllCats';
 import { Cat } from '../api/getCatById';
 import { SearchBar } from './searchbar';
 import { RangeSlider } from './range-slider';
 import { Loading } from '../loadingPages/loading';
-import { requireAuth } from '../utils';
 
 
-export async function loader({ request } : {request: Request}) {
-  await requireAuth(request)
+export function loader() {
   return getAllCats()
 }
 
