@@ -1,9 +1,10 @@
-import { Suspense, useEffect, useState } from 'react';
-import { Link, useParams, useLoaderData, defer, Await } from 'react-router-dom';
+import React, { Suspense, useEffect, useState } from 'react';
+import { Link, useParams, useLoaderData, defer, Await, Navigate } from 'react-router-dom';
 import { Cat as ICat, getCatById } from '../api/getCatById';
 import styles from '../cat/cat.module.css';
 import { Error } from '../error/error';
 import { Loading } from '../loadingPages/loading';
+import { redirect } from 'react-router-dom';
 // import { useApi } from '../hooks/useApi';
 
 // export function loader({ params }:{params: {id: number}}) {
@@ -15,6 +16,7 @@ export const Cat = () => {
 
   const [cat, setCat] = useState<ICat | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const isLoggedIn = localStorage.getItem("loggedin")
 
   useEffect(() => {
     if (id) {
@@ -34,7 +36,7 @@ export const Cat = () => {
 
 
  const handleClick = () => {
-  if (cat){
+  if (cat) {
     const reservedCat = {...cat, available: false}
     setCat(reservedCat)
   }
@@ -48,6 +50,10 @@ export const Cat = () => {
   if (!cat) {
     return <Error />
   }
+
+  const reserveButton = cat.available 
+    ? (<button className={styles.buttonRsv} onClick={handleClick}>Reserve</button>) 
+    : (<div className={styles.reservedCat}>This cat is reserved.</div>)
 
   return (
     <Suspense fallback={<Loading />}>
@@ -63,7 +69,7 @@ export const Cat = () => {
             <li>{`Status: ${cat.available ? "Available" : "Reserved"}`}</li>
           </ul>
           <div className={styles.catDescription}>{cat.description}</div>
-          {cat.available ? (<button className={styles.buttonRsv} onClick={handleClick}>Reserve</button>) : ""}
+          {isLoggedIn === "true" ? reserveButton : <div className={styles.reservedCat}>You need to {<Link to="/login" className={styles.logIn}>log in</Link>} first to reserve a cat.</div>}
           <Link
           to=".."
           relative="path"
