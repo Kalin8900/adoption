@@ -20,10 +20,25 @@ export class CatRepository {
   constructor() {
     this.cats = JSON.parse(
       readFileSync(join(__filename, '..', 'data', 'data.json'), 'utf-8')
-    );
+    ).cats;
   }
 
   public async getAllCats(): Promise<Cat[]> {
     return this.cats;
   }
+
+  public async getCatById(id: number): Promise<Cat> {
+    console.log(this.cats)
+    return this.cats.find((cat) => cat.id === id) || null;
+  }
+
 }
+
+// diodac reszre end pointów
+// dodanie kota
+
+// usuniecie kota
+
+// akltualizacja kota
+
+// jak zorbic abby na biezaca nsie aktulizaowal data.json
