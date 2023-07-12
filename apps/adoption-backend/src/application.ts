@@ -5,20 +5,29 @@ import { WelcomeController } from './controller/welcome.controller';
 import { CatController } from './controller/cat.controller';
 
 export class Application {
-  private readonly WelcomeController: WelcomeController;
-  private readonly CatController: CatController;
+  private readonly welcomeController: WelcomeController;
+  private readonly catController: CatController;
 
   private constructor(
     private readonly app: express.Express,
     private readonly server: Server
   ) {
-    this.WelcomeController = new WelcomeController();
+    this.welcomeController = new WelcomeController();
     this.app.get('/api', (req, res) =>
-      this.WelcomeController.getWelcomeMessage(req, res)
+      this.welcomeController.getWelcomeMessage(req, res)
     );
-    this.CatController = new CatController();
+
+    this.catController = new CatController();
     this.app.get('/api/cats', (req, res) =>
-      this.CatController.getAllCats(req, res)
+      this.catController.getAllCats(req, res)
+    );
+
+    this.app.get('/api/cats/:id', (req, res) =>
+      this.catController.getCatById(req, res)
+    );
+
+    this.app.get('/api/recom/:numberOfPupils', (req, res) =>
+      this.catController.getRecomCats(req, res)
     );
   }
 
