@@ -14,7 +14,10 @@
         "outputPath": "dist/apps/adoption-backend",
         "main": "apps/adoption-backend/src/main.ts",
         "tsConfig": "apps/adoption-backend/tsconfig.app.json",
-        "assets": ["apps/adoption-backend/src/assets"],
+        "assets": [
+          "apps/adoption-backend/src/assets",
+          "apps/adoption-backend/src/data"
+        ],
         "isolatedConfig": true,
         "webpackConfig": "apps/adoption-backend/webpack.config.js"
       },
