@@ -2,9 +2,11 @@ import express from 'express';
 import { Server } from 'http';
 import * as path from 'path';
 import { WelcomeController } from './controller/welcome.controller';
+import { CatController } from './controller/cat.controller';
 
 export class Application {
   private readonly WelcomeController: WelcomeController;
+  private readonly CatController: CatController;
 
   private constructor(
     private readonly app: express.Express,
@@ -13,6 +15,10 @@ export class Application {
     this.WelcomeController = new WelcomeController();
     this.app.get('/api', (req, res) =>
       this.WelcomeController.getWelcomeMessage(req, res)
+    );
+    this.CatController = new CatController();
+    this.app.get('/api/cats', (req, res) =>
+      this.CatController.getAllCats(req, res)
     );
   }
 
