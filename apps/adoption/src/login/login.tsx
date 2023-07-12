@@ -24,7 +24,7 @@ export async function action({ request } : { request: Request }) {
     try {
         const data = await loginUser(email, password)
         return redirect(pathname)
-    } catch(err: any) {
+    } catch (err: any) {
         return err.message
     }
 }

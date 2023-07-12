@@ -3,5 +3,6 @@ export enum Route {
   Home = '/',
   Cat = '/cats/:id',
   Info = '/info',
-  Login = '/login'
+  Login = '/login',
+  User = '/user'
 }

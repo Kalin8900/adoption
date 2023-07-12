@@ -11,6 +11,7 @@ import { Error } from "../error/error"
 import { LoginPage } from '../pages/login.page';
 import { loader as loginLoader, action as loginAction } from "../login/login"
 import { requireAuth } from '../utils';
+import { AccountPage } from "../pages/user.page"
 
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path={AppRoute.Home} element={<Layout />}>
@@ -19,6 +20,7 @@ import { requireAuth } from '../utils';
       <Route path={AppRoute.Cats} element={<CatListPage />} loader={CatListLoader}  errorElement={<Error />} />
       <Route path={AppRoute.Cat} element={<CatPage />}/>
       <Route path={AppRoute.Info} element={<InfoPage />} />
+      <Route path={AppRoute.User} element={<AccountPage />} />
     </Route>
   ))
 
