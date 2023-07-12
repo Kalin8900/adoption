@@ -6,8 +6,8 @@ import { getRecomCats } from "../api/getRecomCats";
 
 export const Home = () => {
 
-    const allPupils = getRecomCats()
-    const pupils = allPupils.slice(1,5)
+    const pupils = getRecomCats(5)
+    
     return (
         <div className={styles.homeMain}>
             <h1 className={styles.homeH1}>Adopt a cat</h1><br />

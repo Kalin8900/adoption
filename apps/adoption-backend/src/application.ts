@@ -16,12 +16,16 @@ export class Application {
     this.app.get('/api', (req, res) =>
       this.WelcomeController.getWelcomeMessage(req, res)
     );
+    
     this.CatController = new CatController();
     this.app.get('/api/cats', (req, res) =>
-      this.CatController.getAllCats(req, res)
-    );
+    this.CatController.getAllCats(req, res));
+
     this.app.get('/api/cats/:id', (req, res) =>
-    this.CatController.getCatById(req, res))
+    this.CatController.getCatById(req, res));
+
+    this.app.get('/api/recom/:numberOfPupils', (req, res) => 
+    this.CatController.getRecomCats(req, res))
   }
 
   public static async start(): Promise<Application> {

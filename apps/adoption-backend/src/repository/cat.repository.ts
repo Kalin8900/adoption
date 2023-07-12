@@ -1,5 +1,7 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
+// import { Cat, PupilProps } from '../data/types'
+
 
 export type Cat = {
   id: number;
@@ -14,8 +16,17 @@ export type Cat = {
   available: boolean;
 };
 
+
+export type PupilProps = {
+  id: number;
+  name: string;
+  image: string;
+}
+
+
 export class CatRepository {
   private readonly cats: Cat[];
+  private readonly recomCats: PupilProps[]
 
   constructor() {
     this.cats = JSON.parse(
@@ -28,13 +39,22 @@ export class CatRepository {
   }
 
   public async getCatById(id: number): Promise<Cat> {
-    console.log(this.cats)
     return this.cats.find((cat) => cat.id === id) || null;
+  }
+
+  public async getRecomCats(numberOfPupils: number): Promise<PupilProps[]> {
+    const pupils = this.cats.map((cat) => ({
+      id: cat.id,
+      name: cat.name,
+      image: cat.image
+    }))
+    return pupils.slice(0, numberOfPupils);
   }
 
 }
 
 // diodac reszre end pointów
+
 // dodanie kota
 
 // usuniecie kota
