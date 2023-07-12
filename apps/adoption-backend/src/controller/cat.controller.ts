@@ -10,7 +10,18 @@ export class CatController {
 
   public async getAllCats(req: Request, res: Response): Promise<void> {
     const allCats = await this.catService.getAllCats();
-
     res.send(allCats);
+  }
+
+  public async getCatById(req: Request, res: Response): Promise<void> {
+    const id = Number(req.params.id)
+    const cat = await this.catService.getCatById(id);
+    res.send({cat})
+ }
+
+  public async getRecomCats(req: Request, res: Response): Promise<void> {
+    const numberOfPupils = Number(req.params.numberOfPupils)
+    const recomCats = await this.catService.getRecomCats(numberOfPupils);
+    res.send(recomCats)
   }
 }

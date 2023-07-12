@@ -6,12 +6,12 @@ export interface PupilProps {
   image: string;
 }
 
-export const getRecomCats = (): PupilProps[]=> {
+export const getRecomCats = (numberOfPupils: number): PupilProps[]=> {
   const pupils: PupilProps[] = cats.map((cat) => ({
     id: cat.id,
     name: cat.name,
     image: cat.image
   }))
-  return pupils
+  return pupils.slice(0, numberOfPupils)
 }
 
