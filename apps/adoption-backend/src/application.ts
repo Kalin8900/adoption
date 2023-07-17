@@ -3,30 +3,33 @@ import { Server } from 'http';
 import * as path from 'path';
 import { WelcomeController } from './controller/welcome.controller';
 import { CatController } from './controller/cat.controller';
-
+import { ValidationMiddleware } from './middleware/middleware';
+import { validateCat } from './repository/cat.repository';
 export class Application {
-  private readonly WelcomeController: WelcomeController;
-  private readonly CatController: CatController;
+  private readonly welcomeController: WelcomeController;
+  private readonly catController: CatController;
+  private readonly validationMiddleware: ValidationMiddleware;
 
   private constructor(
     private readonly app: express.Express,
     private readonly server: Server
   ) {
-    this.WelcomeController = new WelcomeController();
+    this.welcomeController = new WelcomeController();
     this.app.get('/api', (req, res) =>
-      this.WelcomeController.getWelcomeMessage(req, res)
+      this.welcomeController.getWelcomeMessage(req, res)
     );
     
-    this.CatController = new CatController();
-    this.app.get('/api/cats', (req, res) =>
-    this.CatController.getAllCats(req, res));
-
-    this.app.get('/api/cats/:id', (req, res) =>
-    this.CatController.getCatById(req, res));
-
-    this.app.get('/api/recom/:numberOfPupils', (req, res) => 
-    this.CatController.getRecomCats(req, res))
-  }
+    this.catController = new CatController();
+    
+    this.app.put(
+      '/api/cats/:catId',
+      (req, res, next) =>
+        this.validationMiddleware.getMiddleware(validateCat)(req, res, next),
+      (req, res) => {
+        this.catController.updateCat(req, res);
+      }
+    );
+}
 
   public static async start(): Promise<Application> {
     const app = express();

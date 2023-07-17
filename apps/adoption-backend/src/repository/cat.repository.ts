@@ -1,7 +1,5 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
-// import { Cat, PupilProps } from '../data/types'
-
 
 export type Cat = {
   id: number;
@@ -17,48 +15,64 @@ export type Cat = {
 };
 
 
-export type PupilProps = {
-  id: number;
-  name: string;
-  image: string;
-}
+export type CatInput = Omit<Cat, 'id'>;
 
+export const validateCat = (data: any): CatInput => {
+  if (!data?.name) {
+    console.log(data);
+    throw new Error('Name is required');
+  }
 
+  if (!data?.age) {
+    throw new Error('Age is required');
+  }
+
+  if (!data?.breed) {
+    throw new Error('Breed is required');
+  }
+
+  if (!data?.color) {
+    throw new Error('Color is required');
+  }
+
+  if (!data?.gender) {
+    throw new Error('Gender is required');
+  }
+
+  if (!data?.image) {
+    throw new Error('Http of image is required');
+  }
+
+  if (!data?.description) {
+    throw new Error('Description is required');
+  }
+
+  if (!data?.adoption_fee) {
+    throw new Error('Adoption fee is required');
+  }
+
+  if (!data?.available) {
+    data.available = true;
+  }
+
+  return data;
+};
 export class CatRepository {
-  private readonly cats: Cat[];
-  private readonly recomCats: PupilProps[]
+  private cats: Cat[];
 
   constructor() {
     this.cats = JSON.parse(
       readFileSync(join(__filename, '..', 'data', 'data.json'), 'utf-8')
     ).cats;
-  }
+}
 
-  public async getAllCats(): Promise<Cat[]> {
-    return this.cats;
-  }
-
-  public async getCatById(id: number): Promise<Cat> {
-    return this.cats.find((cat) => cat.id === id) || null;
-  }
-
-  public async getRecomCats(numberOfPupils: number): Promise<PupilProps[]> {
-    const pupils = this.cats.map((cat) => ({
-      id: cat.id,
-      name: cat.name,
-      image: cat.image
-    }))
-    return pupils.slice(0, numberOfPupils);
+  public async updateCat(catId: number, newProps: Cat): Promise<Cat> {
+    let catToUpdate = this.cats.find((cat) => cat.id === catId)
+    catToUpdate = {
+      ...newProps,
+      id: catId
+    }
+    return catToUpdate
   }
 
 }
-
-// diodac reszre end pointów
-
-// dodanie kota
-
-// usuniecie kota
-
-// akltualizacja kota
-
-// jak zorbic abby na biezaca nsie aktulizaowal data.json
