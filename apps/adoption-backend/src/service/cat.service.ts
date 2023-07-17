@@ -2,7 +2,7 @@
 import { CatRepository } from '../repository/cat.repository';
 
 
-export type Cat = {
+type Cat = {
   id: number;
   name: string;
   age: number;
@@ -16,12 +16,18 @@ export type Cat = {
 };
 
 
-export type PupilProps = {
+type PupilProps = {
   id: number;
   name: string;
   image: string;
 }
 
+type Users = {
+  id: number;
+  email: string;
+  password: string;
+  name: string;
+}
 
 export class CatService {
   private readonly catRepository: CatRepository;
@@ -41,4 +47,17 @@ export class CatService {
   public async getRecomCats(numberOfPupils: number): Promise<PupilProps[]> {
     return this.catRepository.getRecomCats(numberOfPupils)
   }
+
+  public async addNewCat(cat: Cat): Promise<Cat> {
+    return this.catRepository.addNewCat(cat)
+  }
+
+  public async deleteCat(id: number): Promise<void> {
+    return this.catRepository.deleteCat(id)
+  }
+
+//   public async loginUser(email: string, password: string): Promise<void> {
+//     return this.catRepository.loginUser(email, password)
+// }
+
 }
