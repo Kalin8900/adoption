@@ -22,4 +22,12 @@ export class CatService {
   public async getRecomCats(numberOfPupils: number): Promise<RecommendedCat[]> {
     return this.catRepository.getRecomCats(numberOfPupils);
   }
+
+  public async addNewCat(cat: Cat): Promise<Cat> {
+    return this.catRepository.addNewCat(cat);
+  }
+
+  public async deleteCat(id: number): Promise<void> {
+    return this.catRepository.deleteCat(id);
+  }
 }
