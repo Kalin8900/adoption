@@ -31,7 +31,7 @@ type Users = {
 }
 
 export class CatRepository {
-  private readonly cats: Cat[];
+  private cats: Cat[];
   private readonly users: Users[]
 
   constructor() {
@@ -76,13 +76,26 @@ export class CatRepository {
     //   adoption_fee: cat.adoption_fee,
     //   available: true,
     // }))
+    
     return this.cats[this.cats.length - 1]
   }
 
-  public async deleteCat(id: number): Promise<void> {
+  public async deleteCat(id: number): Promise<Cat[]> {
     const catToDelete = this.cats.find((cat) => cat.id === id)
-    
+    const newCats = []
+    for (let i=0; i<this.cats.length; i++) {
+      if (this.cats[i] === catToDelete) {
+        continue
+      } else 
+        newCats.push(this.cats[i])
+    }
+    this.cats = newCats
+    return this.cats
   }
+
+  // public async updateCat(id: number): Promise<Cat> {
+  //   const catToUpdate = this.cats.find((cat) => cat.id === id)
+  //   catToUpdate.
 //   public async loginUser(email: string, password: string): Promise<void> {
 //     if (this.users.find(user => email === user.email && password === user.password))
 //         return localStorage.setItem("loggedin", "true")
