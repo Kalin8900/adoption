@@ -62,24 +62,50 @@ export class CatRepository {
     return pupils.slice(0, numberOfPupils);
   }
 
+//////////// dodawanie kota
+/// 1 wersja
   public async addNewCat(cat: Cat): Promise<Cat> {
     this.cats.push(cat)
-    // this.cats.push((cat: Cat) => ({
-    //   id: cat.id,
-    //   name: cat.name,
-    //   age: cat.age,
-    //   breed: cat.breed,
-    //   color: cat.color,
-    //   gender: cat.gender,
-    //   image: cat.image,
-    //   description: cat.description,
-    //   adoption_fee: cat.adoption_fee,
-    //   available: true,
-    // }))
-    
     return this.cats[this.cats.length - 1]
   }
 
+  /// 2 wersja (raczej błędna)
+  public async addNewCat2(cat: Cat): Promise<Cat> {
+    const newCat = Object.create({
+      id: cat.id,
+      name: cat.name,
+      age: cat.age,
+      breed: cat.breed,
+      color: cat.color,
+      gender: cat.gender,
+      image: cat.image,
+      description: cat.description,
+      adoption_fee: cat.adoption_fee,
+      available: cat.available,
+    })
+    this.cats.push(newCat)
+    return newCat
+  }
+
+  /// 3 wersja 
+  public async addNewCat3(cat: Cat): Promise<Cat> {
+    this.cats.push({
+      id: cat.id,
+      name: cat.name,
+      age: cat.age,
+      breed: cat.breed,
+      color: cat.color,
+      gender: cat.gender,
+      image: cat.image,
+      description: cat.description,
+      adoption_fee: cat.adoption_fee,
+      available: cat.available,
+  })
+      return this.cats[this.cats.length - 1]
+  }
+
+//////////// usuwanie kota
+/// 1 wersja
   public async deleteCat(id: number): Promise<Cat[]> {
     const catToDelete = this.cats.find((cat) => cat.id === id)
     const newCats = []
@@ -92,10 +118,22 @@ export class CatRepository {
     this.cats = newCats
     return this.cats
   }
+  
+/// 2 wersja
+public async deleteCat2(id: number): Promise<Cat[]> {
+  return this.cats.filter((cat) => cat.id !== id)
+}
 
-  // public async updateCat(id: number): Promise<Cat> {
-  //   const catToUpdate = this.cats.find((cat) => cat.id === id)
-  //   catToUpdate.
+
+///////////// update kota
+  public async updateCat(id: number, newProps: Cat): Promise<Cat> {
+    const catToUpdate = this.cats.find((cat) => cat.id === id)
+    Object.keys(catToUpdate).forEach((item) => {
+      catToUpdate[item] = newProps[item]
+    })
+    return catToUpdate
+  }
+
 //   public async loginUser(email: string, password: string): Promise<void> {
 //     if (this.users.find(user => email === user.email && password === user.password))
 //         return localStorage.setItem("loggedin", "true")

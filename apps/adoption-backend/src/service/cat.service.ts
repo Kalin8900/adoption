@@ -56,9 +56,9 @@ export class CatService {
     return this.catRepository.deleteCat(id)
   }
 
-  // public async updateCat(id: number): Promise<Cat> {
-  //   return this.catRepository.updateCat(id)
-  // }
+  public async updateCat(id: number, newProps: Cat): Promise<Cat> {
+    return this.catRepository.updateCat(id, newProps)
+  }
 
 
 //   public async loginUser(email: string, password: string): Promise<void> {

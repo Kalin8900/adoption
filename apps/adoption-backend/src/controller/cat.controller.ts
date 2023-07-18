@@ -51,11 +51,12 @@ export class CatController {
     res.send(deleteCat)
   }
 
-  // public async updateCat(req: Request, res: Response): Promise<void> {
-  //   const id = Number(req)
-  //   const updateCat = await this.catService.updateCat(id);
-  //   res.send(updateCat)
-  // }
+  public async updateCat(req: Request, res: Response): Promise<void> {
+    const id = Number(req)
+    const newProps = Object(req)
+    const updateCat = await this.catService.updateCat(id, newProps);
+    res.send(updateCat)
+  }
 
   // public async loginUser(req: Request, res: Response): Promise<void> {
   //   const email = req.email
