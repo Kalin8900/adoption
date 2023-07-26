@@ -1,6 +1,7 @@
 import express from 'express';
 import { Server } from 'http';
 import * as path from 'path';
+import cors from 'cors';
 import { WelcomeController } from './controller/welcome.controller';
 import { CatController } from './controller/cat.controller';
 import { ValidationMiddleware } from './middleware/validation.middleware';
@@ -54,6 +55,7 @@ export class Application {
 
     app.use('/assets', express.static(path.join(__dirname, 'assets')));
     app.use(express.json());
+    app.use(cors());
 
     const port = process.env.PORT || 3333;
     const server = app.listen(port, () => {
