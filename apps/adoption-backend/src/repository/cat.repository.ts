@@ -1,5 +1,6 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { Database } from '../data/database';
 
 export type Cat = {
   id: number;
@@ -66,11 +67,12 @@ export type RecommendedCat = {
 
 export class CatRepository {
   private readonly cats: Cat[];
+  private readonly database: Database;
 
   constructor() {
-    this.cats = JSON.parse(
-      readFileSync(join(__filename, '..', 'data', 'data.json'), 'utf-8')
-    ).cats;
+    this.database = new Database(join(__filename, '..', 'data', 'data.json'));
+
+    this.cats = this.database.read().cats;
   }
 
   public async getAllCats(): Promise<Cat[]> {
@@ -90,6 +92,7 @@ export class CatRepository {
     return pupils.slice(0, numberOfPupils);
   }
 
+  // TODO: Add cat to database
   public async addNewCat(catInput: CatInput): Promise<Cat> {
     const cat: Cat = {
       ...catInput,
@@ -97,9 +100,12 @@ export class CatRepository {
     };
 
     this.cats.push(cat);
+
+    this.database.write(JSON.stringify({ cats: this.cats }));
     return cat;
   }
 
+  // TODO: Delete cat from database
   public async deleteCat(id: number): Promise<void> {
     const index = this.cats.findIndex((cat) => cat.id === id);
     this.cats.splice(index, 1);
