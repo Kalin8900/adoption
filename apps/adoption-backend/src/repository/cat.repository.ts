@@ -14,7 +14,7 @@ export type Cat = {
   available: boolean;
 };
 
-export type PupilProps = {
+export type RecommendedCat = {
   id: number;
   name: string;
   image: string;
@@ -22,7 +22,6 @@ export type PupilProps = {
 
 export class CatRepository {
   private readonly cats: Cat[];
-  private readonly recomCats: PupilProps[];
 
   constructor() {
     this.cats = JSON.parse(
@@ -38,7 +37,7 @@ export class CatRepository {
     return this.cats.find((cat) => cat.id === id) || null;
   }
 
-  public async getRecomCats(numberOfPupils: number): Promise<PupilProps[]> {
+  public async getRecomCats(numberOfPupils: number): Promise<RecommendedCat[]> {
     const pupils = this.cats.map((cat) => ({
       id: cat.id,
       name: cat.name,
@@ -47,13 +46,3 @@ export class CatRepository {
     return pupils.slice(0, numberOfPupils);
   }
 }
-
-// diodac reszre end pointów
-
-// dodanie kota
-
-// usuniecie kota
-
-// akltualizacja kota
-
-// jak zorbic abby na biezaca nsie aktulizaowal data.json
