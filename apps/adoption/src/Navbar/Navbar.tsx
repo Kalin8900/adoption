@@ -7,9 +7,10 @@ import Icon from "../assets/cat-profile.png"
 
 export const Navbar = () => {
   const isCurrentPath = useGetIsCurrentPath();
+
   function LogOut() {
     localStorage.removeItem("loggedin")
-    console.log(localStorage.getItem("loggedin"))
+    window.location.reload()
 }
 
   return (

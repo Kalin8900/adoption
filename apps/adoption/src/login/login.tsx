@@ -23,7 +23,8 @@ export async function action({ request } : { request: Request }) {
     
     try {
         const data = await loginUser(email, password)
-        return redirect(pathname)
+        if (localStorage.getItem("loggedin") === "true")
+            return redirect(pathname)
     } catch (err: any) {
         return err.message
     }

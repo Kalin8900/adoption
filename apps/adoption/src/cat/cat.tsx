@@ -17,7 +17,7 @@ export const Cat = () => {
   const [cat, setCat] = useState<ICat | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const isLoggedIn = localStorage.getItem("loggedin")
-
+  const isReserved = cat ? localStorage.getItem(`Cat ${cat.id}`) : null
   useEffect(() => {
     if (id) {
       (async () => {
@@ -51,9 +51,13 @@ export const Cat = () => {
     return <Error />
   }
 
-  const reserveButton = cat.available 
+  const reserveButton = cat.available
     ? (<button className={styles.buttonRsv} onClick={handleClick}>Reserve</button>) 
     : (<div className={styles.reservedCat}>This cat is reserved.</div>)
+
+    if (cat.available === false)
+      localStorage.setItem(`Cat ${cat.id}`, `reserved Cat ${cat.id}`)
+      console.log(isReserved)
 
   return (
     <Suspense fallback={<Loading />}>
@@ -69,7 +73,9 @@ export const Cat = () => {
             <li>{`Status: ${cat.available ? "Available" : "Reserved"}`}</li>
           </ul>
           <div className={styles.catDescription}>{cat.description}</div>
-          {isLoggedIn === "true" ? reserveButton : <div className={styles.reservedCat}>You need to {<Link to="/login" className={styles.logIn}>log in</Link>} first to reserve a cat.</div>}
+          {isLoggedIn === "true" 
+            ? reserveButton 
+            : <div className={styles.reservedCat}>You need to {<Link to="/login" className={styles.logIn}>log in</Link>} first to reserve a cat.</div>}
           <Link
           to=".."
           relative="path"
