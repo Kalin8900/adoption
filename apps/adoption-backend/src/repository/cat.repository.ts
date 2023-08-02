@@ -1,9 +1,7 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
-// import { Cat, PupilProps } from '../data/types'
 
-
-type Cat = {
+export type Cat = {
   id: number;
   name: string;
   age: number;
@@ -24,7 +22,6 @@ export type RecommendedCat = {
 
 export class CatRepository {
   private cats: Cat[];
-  private readonly users: Users[]
 
   constructor() {
     this.cats = JSON.parse(
