@@ -1,7 +1,5 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
-// import { Cat, PupilProps } from '../data/types'
-
 
 export type Cat = {
   id: number;
@@ -16,17 +14,15 @@ export type Cat = {
   available: boolean;
 };
 
-
-export type PupilProps = {
+export type RecomCats = {
   id: number;
   name: string;
   image: string;
 }
 
-
 export class CatRepository {
   private readonly cats: Cat[];
-  private readonly recomCats: PupilProps[]
+  private readonly recomCats: RecomCats[]
 
   constructor() {
     this.cats = JSON.parse(
@@ -42,23 +38,13 @@ export class CatRepository {
     return this.cats.find((cat) => cat.id === id) || null;
   }
 
-  public async getRecomCats(numberOfPupils: number): Promise<PupilProps[]> {
-    const pupils = this.cats.map((cat) => ({
+  public async getRecomCats(numberOfRecomCats: number): Promise<RecomCats[]> {
+    const recomCats = this.cats.map((cat) => ({
       id: cat.id,
       name: cat.name,
       image: cat.image
     }))
-    return pupils.slice(0, numberOfPupils);
+    return recomCats.slice(0, numberOfRecomCats);
   }
 
 }
-
-// diodac reszre end pointów
-
-// dodanie kota
-
-// usuniecie kota
-
-// akltualizacja kota
-
-// jak zorbic abby na biezaca nsie aktulizaowal data.json
