@@ -57,13 +57,6 @@ export const validateCat = (data: any): CatInput => {
 
   return data;
 };
-
-export type RecommendedCat = {
-  id: number;
-  name: string;
-  image: string;
-};
-
 export class CatRepository {
   private readonly cats: Cat[];
 
@@ -72,24 +65,6 @@ export class CatRepository {
       readFileSync(join(__filename, '..', 'data', 'data.json'), 'utf-8')
     ).cats;
   }
-
-  public async getAllCats(): Promise<Cat[]> {
-    return this.cats;
-  }
-
-  public async getCatById(id: number): Promise<Cat> {
-    return this.cats.find((cat) => cat.id === id) || null;
-  }
-
-  public async getRecomCats(numberOfPupils: number): Promise<RecommendedCat[]> {
-    const pupils = this.cats.map((cat) => ({
-      id: cat.id,
-      name: cat.name,
-      image: cat.image,
-    }));
-    return pupils.slice(0, numberOfPupils);
-  }
-
   public async addNewCat(catInput: CatInput): Promise<Cat> {
     const cat: Cat = {
       ...catInput,
@@ -99,7 +74,6 @@ export class CatRepository {
     this.cats.push(cat);
     return cat;
   }
-
 
     public async deleteCat(id: number): Promise<void> {
       const catToDelete = this.cats.find((cat) => cat.id === id);
