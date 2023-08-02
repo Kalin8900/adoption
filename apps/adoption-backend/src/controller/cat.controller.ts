@@ -9,8 +9,8 @@ export class CatController {
   }
   
   public async getRecomCats(req: Request, res: Response): Promise<void> {
-    const numberOfPupils = Number(req.params.numberOfPupils)
-    const recomCats = await this.catService.getRecomCats(numberOfPupils);
+    const numberOfRecomCats = Number(req.params.numberOfRecomCats)
+    const recomCats = await this.catService.getRecomCats(numberOfRecomCats);
     res.send(recomCats)
   }
 }

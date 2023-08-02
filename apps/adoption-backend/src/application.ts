@@ -17,7 +17,7 @@ export class Application {
       this.WelcomeController.getWelcomeMessage(req, res)
     );
 
-    this.app.get('/api/recom/:numberOfPupils', (req, res) => 
+    this.app.get('/api/recom/:numberOfRecomCats', (req, res) => 
     this.CatController.getRecomCats(req, res))
   }
 

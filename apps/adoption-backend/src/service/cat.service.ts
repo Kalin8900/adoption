@@ -7,7 +7,7 @@ export class CatService {
     this.catRepository = new CatRepository();
   }
 
-  public async getRecomCats(numberOfPupils: number): Promise<RecomCats[]> {
-    return this.catRepository.getRecomCats(numberOfPupils)
+  public async getRecomCats(numberOfRecomCats: number): Promise<RecomCats[]> {
+    return this.catRepository.getRecomCats(numberOfRecomCats)
   }
 }

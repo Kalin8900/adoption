@@ -30,14 +30,6 @@ export class CatRepository {
     ).cats;
   }
 
-  public async getAllCats(): Promise<Cat[]> {
-    return this.cats;
-  }
-
-  public async getCatById(id: number): Promise<Cat> {
-    return this.cats.find((cat) => cat.id === id) || null;
-  }
-
   public async getRecomCats(numberOfRecomCats: number): Promise<RecomCats[]> {
     const recomCats = this.cats.map((cat) => ({
       id: cat.id,
