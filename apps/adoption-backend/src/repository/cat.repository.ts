@@ -58,6 +58,8 @@ export const validateCat = (data: any): CatInput => {
 
   return data;
 };
+
+
 export class CatRepository {
   private readonly cats: Cat[];
 
@@ -76,9 +78,10 @@ export class CatRepository {
     return cat;
   }
 
-  public async deleteCat(id: number): Promise<void> {
-    const index = this.cats.findIndex((cat) => cat.id === id);
-    this.cats.splice(index, 1);
+    public async deleteCat(id: number): Promise<void> {
+      const catToDelete = this.cats.find((cat) => cat.id === id);
+      const index = this.cats.indexOf(catToDelete);
+      this.cats.splice(index, 1);
     
   }
 }

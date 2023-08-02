@@ -9,6 +9,7 @@ export class CatService {
   constructor() {
     this.catRepository = new CatRepository();
   }
+
   public async addNewCat(cat: Cat): Promise<Cat> {
     return this.catRepository.addNewCat(cat);
   }
