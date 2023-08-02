@@ -57,6 +57,8 @@ export const validateCat = (data: any): CatInput => {
 
   return data;
 };
+
+
 export class CatRepository {
   private readonly cats: Cat[];
 
@@ -72,7 +74,7 @@ export class CatRepository {
     };
 
     this.cats.push(cat);
-    return cat;
+    return this.cats[this.cats.length - 1];
   }
 
     public async deleteCat(id: number): Promise<void> {
