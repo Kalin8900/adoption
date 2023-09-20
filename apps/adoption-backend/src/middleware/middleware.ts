@@ -6,7 +6,9 @@ export class ValidationMiddleware {
       try {
         validate(req.body);
       } catch (error) {
-        res.status(400).send(error.message);
+        if (error instanceof Error){
+          res.status(400).send(error?.message)
+        }
         return;
       }
 

@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "resolveJsonModule": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {},
+    "strict": true
   },
   "exclude": ["node_modules", "tmp"]
 }

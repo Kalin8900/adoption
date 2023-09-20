@@ -14,6 +14,7 @@ export class Application {
     private readonly app: express.Express,
     private readonly server: Server
   ) {
+    this.validationMiddleware = new ValidationMiddleware();
     this.welcomeController = new WelcomeController();
     this.app.get('/api', (req, res) =>
       this.welcomeController.getWelcomeMessage(req, res)
