@@ -8,7 +8,7 @@ export class CatController {
     this.catService = new CatService();
   }
   public async updateCat(req: Request<any, void, Cat>, res: Response): Promise<void> {
-    const catId = Number(req)
+    const catId = Number(req.params.catId)
     const newProps = req.body
     const updateCat = await this.catService.updateCat(catId, newProps);
     res.status(200).send(updateCat);

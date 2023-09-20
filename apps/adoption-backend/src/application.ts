@@ -34,6 +34,7 @@ export class Application {
 
   public static async start(): Promise<Application> {
     const app = express();
+    app.use(express.json());
 
     app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
