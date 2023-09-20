@@ -15,6 +15,7 @@ export class Application {
     private readonly app: express.Express,
     private readonly server: Server
   ) {
+    this.validationMiddleware = new ValidationMiddleware();
     this.welcomeController = new WelcomeController();
     this.app.get('/api', (req, res) =>
       this.welcomeController.getWelcomeMessage(req, res)
@@ -38,7 +39,7 @@ export class Application {
 
   public static async start(): Promise<Application> {
     const app = express();
-
+    app.use(express.json());
     app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
     const port = process.env.PORT || 3333;
