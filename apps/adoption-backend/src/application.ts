@@ -16,14 +16,14 @@ export class Application {
     this.app.get('/api', (req, res) =>
       this.WelcomeController.getWelcomeMessage(req, res)
     );
-
+    this.CatController = new CatController();
     this.app.get('/api/recom/:numberOfRecomCats', (req, res) => 
     this.CatController.getRecomCats(req, res))
   }
 
   public static async start(): Promise<Application> {
     const app = express();
-
+  
     app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
     const port = process.env.PORT || 3333;
